@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tentang Adena.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --fuchsia: #d45a8d;
+            --soft-pink: #fdf2f5;
+            --text: #5a4a4a;
+            --shadow-flat: 0 5px 15px rgba(0,0,0,0.08);
+            --shadow-timbul: 0 15px 30px rgba(212, 90, 141, 0.25);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            overflow: hidden; 
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 250, 251, 0.6);
+            z-index: -1;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;    
+            text-align: center;
+            z-index: 10;
+            padding: 20px;
+            margin-top: 55px; 
+        }
+
+        .top-right-container {
+            position: absolute;
+            top: 75px; 
+            right: 25px;
+            text-align: right;
+            font-size: 13px;
+            color: var(--fuchsia);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
+            padding: 8px 15px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-flat);
+            z-index: 100;
+            min-width: 120px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 45px;
+            font-style: italic;
+            margin: 0;
+            color: var(--text);
+            line-height: 1.2;
+        }
+
+        .main-paragraph { font-size: 13px; margin: 5px 0 15px; font-weight: 300; opacity: 0.8; }
+
+        .image-center-wrapper {
+            margin: 10px auto;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .layered-container {
+            position: relative;
+            width: 260px;
+            height: 230px;
+        }
+
+        .layer-img {
+            position: absolute;
+            width: 170px;
+            border: 6px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: 0.5s ease-in-out;
+            left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+        }
+
+        .ribbon-main {
+            position: absolute;
+            width: 120px;
+            z-index: 100;
+            left: 50%; top: -15px;
+            transform: translateX(-50%);
+            pointer-events: none;
+            transition: 0.3s;
+        }
+
+        .click-hint {
+            font-size: 11px;
+            color: var(--fuchsia);
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            opacity: 0.7;
+            text-transform: lowercase;
+            font-style: italic;
+        }
+
+        /* === INFO BOX === */
+        .profile-info-card {
+            max-width: 550px;
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 18px;
+            box-shadow: var(--shadow-flat);
+            margin-bottom: 15px;
+        }
+        .pink-text { color: var(--fuchsia); font-weight: 500; font-size: 13.5px; line-height: 1.6; margin: 0; }
+
+        /* === AUDIO === */
+        audio { height: 28px; width: 280px; opacity: 0.7; }
+
+        /* === SOCIALS === */
+        .main-socials { display: flex; gap: 15px; justify-content: center; margin-top: 15px; }
+        .main-socials img { width: 32px; height: 32px; transition: 0.3s; }
+        .main-socials img:hover { transform: translateY(-5px); }
+
+        /* === BUTTERFLY === */
+        .butterfly-container { position: fixed; z-index: 9999; pointer-events: none; width: 45px; animation: flyAcross 25s linear infinite; }
+        .butterfly-image { width: 100%; animation: wingFlap 0.3s ease-in-out infinite alternate; }
+        @keyframes wingFlap { from { transform: rotateY(0deg); } to { transform: rotateY(70deg); } }
+        @keyframes flyAcross {
+            0% { top: 30%; left: -10%; transform: rotate(20deg); }
+            50% { top: 15%; left: 85%; transform: rotate(-10deg); }
+            100% { top: 30%; left: -10%; transform: rotate(20deg); }
+        }
+    </style>
+</head>
+
+
+    <body class="bg-main">
+<br><br><br>
+<iframe src="header.html" width="100%" height="55px" frameborder="0" scrolling="no" style="position:fixed; top:0; left:0; z-index:9999; border:none;"></iframe>
+
+<div class="butterfly-container">
+    <img src="https://www.pngall.com/wp-content/uploads/2016/03/Butterfly-PNG-3.png" class="butterfly-image" alt="butterfly">
+</div>
+
+<div class="top-right-container">
+    <span id="hourMinSec" style="font-weight: 600;">--:--:--</span><br>
+    <span id="fullDate" style="font-size: 11px; opacity: 0.8;">---</span>
+</div>
+
+<main>
+    <h1>tentang adena</h1>
+    <p class="main-paragraph">a quiet archive of memories, written softly.</p>
+
+    <div class="image-center-wrapper" onclick="shuffleImages()">
+        <div class="layered-container" id="photoStack">
+            <img src="images/ribbon.png" class="ribbon-main" alt="Ribbon">
+            <img src="images/pfp.jpg" class="layer-img" style="transform: translate(-50%, -50%) rotate(2deg); z-index: 6;">
+            <img src="images/bio5.jpeg" class="layer-img" style="transform: translate(-50%, -50%) rotate(-5deg); z-index: 5;">
+            <img src="images/mp1.jpeg" class="layer-img" style="transform: translate(-50%, -50%) rotate(4deg); z-index: 4;">
+            <img src="images/mp2.jpeg" class="layer-img" style="transform: translate(-50%, -50%) rotate(-3deg); z-index: 3;">
+            <img src="images/mp3.jpeg" class="layer-img" style="transform: translate(-50%, -50%) rotate(6deg); z-index: 2;">
+            <img src="images/mp4.jpeg" class="layer-img" style="transform: translate(-50%, -50%) rotate(-7deg); z-index: 1;">
+        </div>
+    </div>
+    
+    <div class="click-hint">click to see more tentang adena</div>
+
+    <div class="profile-info-card">
+        <p class="pink-text">
+            Hi, I'm Adena. This space is a collection of my quietest thoughts, studies, and first attempts at creation.
+            A small archive built while growing up in Rembau. Feel free to explore <i> Tentang Adena.</i>
+        </p>
+    </div>
+
+    <audio controls>
+        <source src="audio/Olivia Dean - A Couple Minutes (Lyric Video) - Olivia Dean (youtube).mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="main-socials">
+        <a href="https://www.instagram.com/bisyriadena" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+        <a href="https://www.tiktok.com/@ad3n44" target="_blank"><img src="images/tiktok.png" alt="TikTok"></a>
+        <a href="mailto:2023268752@student.uitm.edu.my"><img src="images/email.png" alt="Email"></a>
+        <a href="https://t.me/ad3naa" target="_blank"><img src="images/telegram.png" alt="Telegram"></a>
+    </div>
+</main>
+
+<iframe src="footer.html" width="100%" height="80px" frameborder="0" scrolling="no" style="border:none; margin-top:20px;"></iframe>
+
+<script>
+    function updateTime() {
+        const now = new Date();
+        document.getElementById("hourMinSec").innerText = now.toLocaleTimeString('en-GB'); 
+        document.getElementById("fullDate").innerText = now.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'short' });
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+
+    function shuffleImages() {
+        const stack = document.getElementById('photoStack');
+        const images = Array.from(stack.getElementsByClassName('layer-img'));
+        let topImg = images.reduce((prev, current) => 
+            (parseInt(window.getComputedStyle(prev).zIndex) > parseInt(window.getComputedStyle(current).zIndex)) ? prev : current
+        );
+
+        images.forEach(img => {
+            let currentZ = parseInt(window.getComputedStyle(img).zIndex);
+            if (img === topImg) {
+                img.style.zIndex = "1";
+                img.style.opacity = "0.4";
+                setTimeout(() => img.style.opacity = "1", 200);
+            } else {
+                img.style.zIndex = (currentZ + 1).toString();
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

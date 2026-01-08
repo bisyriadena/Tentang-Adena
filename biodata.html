@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bisyri Adena — Biodata</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+  <style>
+
+:root {
+      --fuchsia: #d45a8d;
+      --soft-pink: #fdf2f5;
+      --text: #5a4a4a;
+      --shadow-timbul: 0 20px 45px rgba(212, 90, 141, 0.2);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-size: cover;
+      color: var(--text);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(255, 250, 251, 0.3);
+      z-index: -1;
+    }
+
+    h1 { font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 700; font-style: italic; margin: 0; line-height: 1.1; color: var(--text); }
+    h2 { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 600; margin-bottom: 20px; color: var(--fuchsia); }
+    h3, th { font-family: 'Playfair Display', serif; font-weight: 600; }
+    p, td, li { font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 1.8; font-weight: 300; color: #6a5a5a; }
+
+    nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 228, 236, 0.95); padding: 15px 40px; display: flex; gap: 30px; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    nav a { text-decoration: none; color: var(--fuchsia); font-weight: 500; font-size: 14px; text-transform: lowercase; transition: 0.3s; }
+    nav a:hover { transform: translateY(-2px); opacity: 0.7; }
+
+    .hero { padding: 140px 8% 60px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 35px; text-align: center; }
+    .hero-text p { font-style: italic; color: #8a7373; margin-top: 15px; font-size: 20px; font-family: 'Playfair Display', serif; }
+
+    .hero-filmstrip-container { width: 100%; max-width: 950px; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); padding: 25px; border-radius: 35px; box-shadow: var(--shadow-timbul); border: 1px solid rgba(255, 255, 255, 0.5); }
+    .hero-filmstrip { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: none; }
+    .hero-film-box { min-width: 180px; height: 240px; border-radius: 20px; background-size: cover; background-position: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border: 3px solid white; flex-shrink: 0; }
+
+    section { padding: 40px 8%; }
+    .card { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); padding: 40px; border-radius: 35px; box-shadow: var(--shadow-timbul); border: 1px solid rgba(255, 255, 255, 0.5); margin-bottom: 50px; transition: transform 0.4s ease; }
+    .card:hover { transform: translateY(-5px); }
+
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { padding: 15px; border-bottom: 1px solid #f2d7e1; text-align: left; }
+    th { color: var(--fuchsia); font-size: 20px; }
+
+    .socials { display: flex; gap: 20px; margin-top: 20px; }
+    .socials img { width: 40px; transition: 0.3s; }
+    .resume-btn { display: inline-block; padding: 15px 35px; background: var(--fuchsia); color: white; text-decoration: none; border-radius: 50px; font-weight: 500; box-shadow: 0 10px 20px rgba(212, 90, 141, 0.3); transition: 0.3s; }
+
+    .testimonial-container { display: grid; grid-template-columns: 280px 1fr; gap: 40px; }
+    .testimonial-item { display: flex; gap: 25px; margin-bottom: 40px; align-items: flex-start; }
+    .testimonial-item img { width: 150px; height: 150px; border-radius: 20px; object-fit: cover; box-shadow: 0 8px 20px rgba(0,0,0,0.15); border: 4px solid white; }
+    .testimonial-label { font-size: 11px; text-transform: uppercase; color: var(--fuchsia); font-weight: 600; display: block; margin-top: 5px; letter-spacing: 1px; }
+
+    .jump-nav-content { display: flex; gap: 40px; padding: 15px 20px; border-top: 1px solid #eecad5; border-bottom: 1px solid #eecad5; justify-content: center; flex-wrap: wrap; margin: -20px 0 -15px; }
+    .jump-nav-content a { text-decoration: none; color: var(--text) !important; font-size: 14px; font-weight: 500; text-transform: lowercase; }
+
+    section[id], .card[id] { scroll-margin-top: 150px; }
+    .back-to-top { position: fixed; bottom: 30px; right: 30px; background: var(--fuchsia); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; z-index: 1001; }
+
+    .custom-marker { list-style: none; padding-left: 0; }
+    .custom-marker li::before { content: "✦ "; color: var(--fuchsia); }
+    pre { background: #fff5f8; padding: 10px; border-radius: 10px; font-size: 12px; color: #888; overflow-x: auto; }
+
+.map-container {
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+}
+
+.map-image {
+    width: 100%;
+    max-width: 900px; 
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: block;
+    margin: 0 auto;
+}
+
+.map-hint {
+    font-size: 12px;
+    font-style: italic;
+    color: var(--text);
+    opacity: 0.7;
+    margin-top: 10px;
+}
+  </style>
+</head>
+
+
+<body class="bg-umum">
+
+  <iframe src="header.html" width="100%" height="55px" frameborder="0" scrolling="no" style="position:fixed; top:0; left:0; z-index:9999; border:none;"></iframe>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Bisyri Adena</h1>
+    <p>“Tentang Adena, seorang jiwa yang menyimpan cerita kecil dalam diam.”</p>
+  </div>
+
+  <div class="jump-nav-content">
+      <a href="#about">about me</a>
+      <a href="#name">meaning of name</a>
+      <a href="#socials">contact</a>
+      <a href="#testimonials">testimonials</a>
+      <a href="#playlist">playlist</a>
+      <a href="#countries">countries</a>
+
+  </div>
+
+  <div class="hero-filmstrip-container">
+    <div class="hero-filmstrip">
+      <div class="hero-film-box" style="background-image: url('images/bunga.jpg');"></div>
+      <div class="hero-film-box" style="background-image: url('images/bungame.jpeg');"></div>
+      <div class="hero-film-box" style="background-image: url('images/nails.png');"></div>
+      <div class="hero-film-box" style="background-image: url('images/baru1.jpeg');"></div>
+      <div class="hero-film-box" style="background-image: url('images/nayeon.png');"></div>
+      <div class="hero-film-box" style="background-image: url('images/baru2.jpeg');"></div>
+      <div class="hero-film-box" style="background-image: url('images/morebunga.jpg');"></div>
+      <div class="hero-film-box" style="background-image: url('images/baru3.jpeg');"></div>
+      <div class="hero-film-box" style="background-image: url('images/haerin.jpg');"></div>
+      <div class="hero-film-box" style="background-image: url('images/baru4.jpeg');"></div>
+      <div class="hero-film-box" style="background-image: url('images/tukar.jpeg');"></div> 
+      <div class="hero-film-box" style="background-image: url('images/bio1.jfif');"></div>
+      <div class="hero-film-box" style="background-image: url('images/biodata.jpeg');"></div>
+      <div class="hero-film-box" style="background-image: url('images/bio2.jfif');"></div>
+      <div class="hero-film-box" style="background-image: url('images/biodata2.jpeg');"></div>
+      <div class="hero-film-box" style="background-image: url('images/bio3.jfif');"></div>
+
+
+    </div>
+    <div class="scroll-hint">scroll to see more <i>Tentang Adena</i></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="card">
+    <h2>hi, i’m Bisyri Adena</h2>
+    <p>
+      I am a <strong>Diploma in Information Management</strong> student at <strong>UiTM Rembau</strong> who believes in growing at my own pace. 
+Born at <strong><u><a href="https://www.ummc.edu.my/" target="_blank" style="color: inherit;"><abbr title="University Malaya Medical Centre">UMMC</abbr></a></u></strong>, Kuala Lumpur on September 20<sup>th</sup>, 2005,I was raised primarily in <strong><u><a href="https://www.google.com/maps/dir//Bukit+Jelutong,+Shah+Alam,+Selangor/@3.1373854,101.4454135,70596m/data=!3m1!1e3!4m9!4m8!1m0!1m5!1m1!1s0x31cc4dfc63a2fdbf:0x39e2a33d516d3bd3!2m2!1d101.5285154!2d3.1071444!3e0?entry=ttu&g_ep=EgoyMDI2MDEwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" style="color: inherit;">Bukit Jelutong, Shah Alam</a></u></strong>.    </p>
+    <p>
+      My MBTI is <span style="color: var(--fuchsia); font-weight: 600;">INFJ-T</span>. 
+      I enjoy <i> listening to music</i> ,<i>cooking</i> and expressing creativity through <i>editing posters</i> 
+      which has been my passion since I was <sub>very</sub> small. While public speaking challenges me, my voice emerges most
+      comfortably among those I <strong> trust</strong>.
+    </p>
+
+
+    
+    <pre>Status: Currently blooming in my own garden of thoughts.</pre>
+  </div>
+</section>
+
+<section id="name">
+  <div class="card">
+    <h2>A Name With A Story</h2>
+    <table>
+      <tr><th>Part</th><th>Meaning</th></tr>
+      <tr><td>Nur (نور)</td><td>Light, radiance, illumination</td></tr>
+      <tr><td>Bisyri (بِشْرِي)</td><td>Bearer of good news, joy and bringer of glad tidings</td></tr>
+      <tr><td>Adena (عدن / أدينا)</td><td>Paradise, heavenly place, something delicate and beautiful</td></tr>
+    </table>
+    
+    <h3 style="margin-top: 30px;">Little Fun Facts</h3>
+    <ul class="custom-marker">
+        <li> I'm a middle child of 3 siblings</li>
+        <li>I love squishies and have collected them since I was a kid. I couldn’t afford many back then, but now I can collect more using my not-so-adult money.</li>
+        <li>I run a small ramen business at my hostel/rented house and have been operating it for more than 1 year</li>
+        <li> I manage a clothing business account selling clothes that my family and I no longer wear</li> 
+        <li> I mainly handle the clothing business myself, from taking orders to packing and posting</li>
+        <li>I prefer keeping my circle small and close</li>
+        <li> I’m not easily influenced by trends, especially in makeup or products. The only thing I can’t resist missing out on is food</li>
+    </ul>
+  </div>
+</section>
+
+<section id="socials" class="social-resume-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+    <div class="card">
+    <h2>where to find me</h2>
+    <div class="socials">
+      <a href="https://www.instagram.com/bisyriadena" target="_blank"><img src="images/instagram.png"></a>
+      <a href="https://www.tiktok.com/@ad3n44" target="_blank"><img src="images/tiktok.png"></a>
+      <a href="mailto:2023268752@student.uitm.edu.my"><img src="images/email.png"></a>
+      <a href="https://t.me/ad3naa" target="_blank"><img src="images/telegram.png"></a>
+    </div>
+  </div>
+
+  <div class="card" style="text-align: center;">
+    <h2>My Resume</h2>
+    <p>Click to see my full professional background.</p>
+    <a href="images/ADENA'S RESUME.png" class="resume-btn" target="_blank">View My Resume</a>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="card">
+    <div class="testimonial-container">
+      <h2 style="font-size: 56px; line-height: 1; color: var(--fuchsia); font-style: italic;">As They <br> See Me</h2>
+      
+      <ol class="testimonials-list" style="padding-left: 0;">
+        <li class="testimonial-item" style="list-style: none;">
+          <img src="images/adriana.jpeg" alt="Aleeya Adriana">
+          <div class="testimonial-text">
+            <h3>Aleeya Adriana</h3>
+            <span class="testimonial-label">Best Friend</span>
+            <p>Adena is someone who is deeply considerate and emotionally aware, able to sense when others are hurting even without them saying a word. She cares too much, often giving her heart and attention to people who may not truly deserve it. She tends to keep her feelings to herself, carrying her emotions quietly, while constantly worrying about how others perceive her, even when it slowly drains her emotionally.</p>
+          </div>
+        </li>
+
+        <li class="testimonial-item" style="list-style: none;">
+          <img src="images/sofea.jpeg" alt="Izani Sofea">
+          <div class="testimonial-text">
+            <h3>Izani Sofea</h3>
+            <span class="testimonial-label">Best Friend</span>
+            <p>Bisyri Adena is the friend that I rely on the most. She is cheerful and always able to make others laugh. She often acts like an older sister, looking out for me and giving support whenever I need it. But even though she’s strong and caring, I can tell that sometimes she also needs someone to rely on, which makes her feel even more real and precious to me.</p>
+          </div>
+        </li>
+
+                <li class="testimonial-item" style="list-style: none;">
+          <img src="images/alisya.jpeg" alt="Alisya Haziqah">
+          <div class="testimonial-text">
+            <h3>Alisya Haziqah</h3>
+            <span class="testimonial-label">Older Sister</span>
+            <p>She's actually quite funny and easy to be around. She’s the one I usually look up to for things like makeup, style, or what to buy, because she always seems to know what looks good. She also has a way of making home feel more comfortable and fun just by being herself. At the same time, she often keeps her feelings bottled up, choosing to stay quiet instead of expressing what she’s really going through, and she overthinks how others see her, always wanting to be understood and accepted.</p>
+          </div>
+        </li>
+
+
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="playlist">
+  <div class="card">
+    <h2>my playlist</h2>
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6xjYIz7fyhPr9yBO7STcoe?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>  </div>
+</section>
+
+<section id="countries">
+  <div class="card">
+    <h2>countries i've been to</h2>
+    
+    <div class="map-container">
+<img src="images/country.png"  usemap="#image-map">
+
+<map name="image-map">
+    <area target="_parent" alt="London" title="London" href="https://en.wikipedia.org/wiki/London" coords="79,239,62,278,71,305,90,308,80,314,83,327,109,325,117,314,105,283,104,255" shape="poly">
+    <area target="_parent" alt="Croatia" title="Croatia" href="https://en.wikipedia.org/wiki/Croatia" coords="156,358,161,337,185,327,194,347,192,384" shape="poly">
+    <area target="_parent" alt="Sabah" title="Sabah" href="https://en.wikipedia.org/wiki/Sabah" coords="639,570,646,541,664,552,674,567,656,588,632,585" shape="poly">
+    <area target="_parent" alt="Malaysia" title="Malaysia" href="https://en.wikipedia.org/wiki/Malaysia" coords="569,550,583,529,607,533,613,571,590,579,572,567" shape="poly">
+    <area target="_parent" alt="Singapore" title="Singapore" href="https://en.wikipedia.org/wiki/Singapore" coords="592,598,589,580,609,558,619,573,622,594" shape="poly">
+    <area target="_parent" alt="Indonesia" title="Indonesia" href="https://en.wikipedia.org/wiki/Indonesia" coords="584,609,622,602,664,633,659,648,611,648" shape="poly">
+    <area target="_parent" alt="South Korea" title="South Korea" href="https://en.wikipedia.org/wiki/Korea" coords="694,399,722,378,750,395,748,418,701,426" shape="poly">
+</map>
+        <p class="map-hint">*Click on the markers to explore the places!</p>
+    </div>
+  </div>
+</section>
+
+
+<a href="#top" class="back-to-top">↑</a>
+
+<iframe src="footer.html" width="100%" height="120px" frameborder="0" scrolling="no" style="border:none; margin-top:50px;"></iframe>
+</body>
+</html>

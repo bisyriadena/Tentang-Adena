@@ -1,0 +1,36 @@
+
+.bg-main {
+    background-image: url('images/wallpaper collage.jpeg') !important;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; 
+}
+
+.bg-umum {
+    background-image: url('images/biodata.jpg') !important;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
+}
+
+
+
+
+@media (max-width: 768px) {
+    
+    .bg-main {
+        background-image: url('images/walpaperphone.jpg') !important; 
+        overflow: auto; 
+    }
+
+    .bg-umum {
+        background-image: url('images/walpaperphone.jpg') !important;
+    }
+}

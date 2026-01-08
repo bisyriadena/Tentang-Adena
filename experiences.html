@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tentang Adena — Experiences</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@400;500&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+  :root {
+  --fuchsia: #d45a8d;
+  --text: #5a4a4a; 
+  --nav-pink: rgba(255, 228, 236, 0.95);
+  --shadow-flat: 0 4px 15px rgba(0, 0, 0, 0.05);
+  --shadow-timbul: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+  body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif; 
+  background-size: cover;
+  color: var(--text);
+}
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(246, 243, 239, 0.6); 
+      z-index: -1;
+    }
+
+    .hero {
+      padding: 140px 8% 40px;
+      text-align: center;
+    }
+
+.hero h1 {
+    font-family: 'Playfair Display', serif; 
+    font-size: 82px;
+    color: var(--fuchsia);
+    margin: 0;
+    font-weight: 700; 
+    font-style: italic; 
+}
+
+    .hero-text p {
+      font-style: italic;
+      color: #8a7373;
+      font-size: 20px;
+      font-family: 'Playfair Display', serif;
+      max-width: 700px;
+      margin: 10px auto;
+      line-height: 1.6;
+    }
+
+.section-header {
+  font-family: 'Playfair Display', serif; 
+  font-size: 42px;
+  color: var(--fuchsia);
+  text-align: center;
+  margin: 40px 0 20px;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.box-title { 
+  font-family: 'Poppins', sans-serif; 
+  font-size: 22px; 
+  color: var(--fuchsia); 
+  margin: 0; 
+  font-weight: 600; 
+  text-transform: none; 
+}    section { padding: 0 8% 20px; }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.7);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-flat);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+
+    .card:hover {
+      transform: translateY(-12px); 
+      box-shadow: var(--shadow-timbul);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .label {
+      display: inline-block;
+      font-size: 11px;
+      background: var(--nav-pink);
+      color: var(--fuchsia);
+      padding: 5px 15px;
+      border-radius: 50px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      width: fit-content;
+    }
+
+    .box-title { font-size: 24px; color: var(--fuchsia); margin: 0; font-weight: bold; }
+.box-subtitle { 
+  display: block; 
+  font-size: 14px; 
+  color: #888; 
+  font-style: italic; 
+  margin-bottom: 15px; 
+  font-family: 'Poppins', sans-serif; 
+}
+
+    .box-img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      object-fit: cover;
+      border: 4px solid white;
+      transition: transform 0.5s ease;
+    }
+
+    .img-4-5 { aspect-ratio: 4 / 5; } 
+    .img-4-3 { aspect-ratio: 4 / 3; } 
+
+    .card:hover .box-img { transform: scale(1.02); }
+
+    .box-list { margin: 15px 0; padding-left: 18px; list-style-type: none; }
+    .box-list li { font-size: 14px; margin-bottom: 8px; line-height: 1.5; }
+    .box-list li::before { content: "•"; color: var(--fuchsia); font-weight: bold; display: inline-block; width: 1em; margin-left: -1em; }
+
+    .more-btn {
+      margin-top: auto;
+      padding: 10px 20px;
+      border: 1.5px solid var(--fuchsia);
+      color: var(--fuchsia);
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: bold;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .more-btn:hover { background: var(--fuchsia); color: white; }
+
+    .filmstrip-container {
+        background: rgba(255, 255, 255, 0.4);
+        padding: 30px 20px;
+        border-radius: 20px;
+        margin: 20px 8%;
+    }
+
+    .filmstrip {
+        display: flex; 
+        gap: 15px; 
+        overflow-x: auto; 
+        padding-bottom: 15px;
+        scrollbar-width: none; 
+    }
+    .filmstrip::-webkit-scrollbar { display: none; }
+
+    .film-box { 
+        min-width: 200px; 
+        aspect-ratio: 1 / 1; 
+        
+        border-radius: 12px;
+        background-size: cover; 
+        background-position: center;
+        border: 4px solid white;
+        flex-shrink: 0;
+        position: relative;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .film-box:hover {
+        transform: translateY(-8px) scale(1.05);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        z-index: 5;
+    }
+
+    .film-overlay {
+        position: absolute; 
+        bottom: 0; left: 0; right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        color: var(--fuchsia); 
+        padding: 8px; 
+        font-size: 11px;
+        font-family: 'Poppins', sans-serif;
+        text-align: center; 
+        opacity: 0; 
+        transition: 0.3s;
+        border-radius: 0 0 8px 8px; 
+    }
+
+    .film-box:hover .film-overlay { 
+        opacity: 1; 
+    }
+
+.img-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  overflow: hidden; 
+  border: 4px solid white;
+}
+
+.box-overlay {
+  position: absolute;
+  bottom: 0; 
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--fuchsia);
+  padding: 10px;
+  font-size: 12px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  font-weight: 500;
+  opacity: 0; 
+  transform: translateY(10px); 
+  transition: 0.3s ease-in-out;
+}
+
+.img-wrapper:hover .box-overlay {
+  opacity: 1;
+  transform: translateY(0); 
+}
+
+.img-wrapper:hover .box-img {
+  transform: scale(1.05); 
+}
+
+
+=    .back-to-top {
+      position: fixed; bottom: 30px; right: 30px;
+      background: var(--fuchsia); color: white;
+      width: 50px; height: 50px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; box-shadow: 0 5px 15px rgba(212, 90, 141, 0.4);
+      z-index: 1001; transition: 0.3s;
+    }
+
+    .back-to-top:hover { transform: scale(1.1); }
+
+    @media (max-width: 850px) {
+      .grid-container { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 60px; }
+    }
+
+.jump-nav-wrapper {
+    background-color: transparent;
+    width: 100%;
+    padding: 0;
+    margin: 20px 0 30px; 
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+.hero-text p {
+    margin-bottom: 10px !important;
+    line-height: 1.6;
+}
+
+.jump-nav-content {
+    display: flex;
+    gap: 45px; 
+    padding: 18px 30px; 
+    border-top: 1px solid #eecad5;
+    border-bottom: 1px solid #eecad5;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.jump-nav-content a, 
+.jump-nav-content a:visited, 
+.jump-nav-content a:active {
+    text-decoration: none;
+    color: var(--text) !important; 
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: lowercase;
+    transition: 0.3s ease;
+    letter-spacing: 1px;
+    outline: none; 
+}
+
+.jump-nav-content a:hover {
+    color: var(--fuchsia) !important;
+    transform: translateY(-2px);
+}
+
+
+#education, #professional, #archives, #community {
+    scroll-margin-top: 180px !important; 
+}
+
+
+.hero-text .lyrics-meaning {
+    font-family: 'Playfair Display', serif; 
+    font-style: italic;
+    color: var(--fuchsia); 
+    font-size: 20px;
+    max-width: 700px;
+    margin: 15px auto 0;
+    line-height: 1.6;
+}
+
+
+
+  </style>
+</head>
+<body class="bg-umum">
+
+      <iframe src="header.html" width="100%" height="55px" frameborder="0" scrolling="no" style="position:fixed; top:0; left:0; z-index:9999; border:none;"></iframe>
+
+      
+<section class="hero">
+    <h1>The "Mekar"</h1>
+    <div class="hero-text">
+        <p>
+          "Seasons change, and so do I. I treat my journey like a garden—from the tiny seeds 
+          planted during my days in Tadika, to the roots I grew in University, and finally 
+          to the blossoms of my working life and volunteering."
+        </p>
+    </div>
+
+<div class="jump-nav-wrapper">
+        <div class="jump-nav-content">
+            <a href="#education">education journey</a>
+            <a href="#professional">working experience</a>
+            <a href="#community">community volunteering</a>
+        </div>
+    </div>
+    </section>
+
+
+<h2 class="section-header" id="education">Education Journey</h2>
+<section class="grid-container">
+  <div class="card">
+    <img src="images/tadika.jpeg" alt="Tadika" class="box-img img-4-5">
+    <div class="label">2009 — 2011</div>
+    <h3 class="box-title">Sri Ad Daris Bukit Jelutong</h3>
+    <span class="box-subtitle">Integrated Pre-School</span>
+    <p>I began my early schooling at PASTI Tadika Az Zahrah while living with my grandparents, before eventually moving to Bukit Jelutong and graduating from Sri Ad Daris.</p>
+  </div>
+
+  <div class="card">
+    <img src="images/rendah.jpeg" alt="SKBJ" class="box-img img-4-5">
+    <div class="label">2012 — 2017</div>
+    <h3 class="box-title">Sekolah Kebangsaan Bukit Jelutong (SKBJ)</h3>
+    <span class="box-subtitle">Primary School</span>
+    <p>I completed my primary education at Sekolah Kebangsaan Bukit Jelutong from Standard 1 to 6, where I also sat for my UPSR examination.</p>
+  </div>
+
+    <div class="card">
+    <img src="images/menengah.jpeg" alt="SMKBJ" class="box-img img-4-5">
+    <div class="label">2018 — 2023</div>
+    <h3 class="box-title">Sekolah Menengah Kebangsaan Bukit Jelutong</h3>
+    <span class="box-subtitle">Secondary School</span>
+    <p>I spent my secondary years at the well-known SMK Bukit Jelutong, where I successfully completed my studies as a Science Stream Student.</p>
+  </div>
+
+    <div class="card">
+    <img src="images/dekan.jpeg" alt="UITM" class="box-img img-4-5">
+    <div class="label">2023-2026</div>
+    <h3 class="box-title">Universiti Teknologi MARA (UiTM) Campus Rembau</h3>
+    <span class="box-subtitle">Diploma</span>
+    <p>I am currently a Diploma in Information Management student at Universiti 
+                    Teknologi MARA (UiTM) Kampus Rembau, under the Faculty of Information Science 
+                    , where my studies emphasize records management, information handling, 
+                    and digital information systems</p>
+  </div>
+
+</section>
+
+<h2 class="section-header" id="professional">Professional Path</h2>
+<section class="grid-container">
+  <div class="card">
+    <div class="label">Ramadan 2023</div>
+    <h3 class="box-title">Cushycandy</h3>
+    <span class="box-subtitle">Cafe Assistant / Production</span>
+    <ul class="box-list">
+    <li>Large-Scale Production: Managed the production of Kuih Raya from batter preparation and piping to baking and final packaging for high-demand orders.</li>
+    <li>Bazaar Menu Preparation: Prepared and assembled specialty dishes including Maggi Kerabu, baby pancakes, and pavlova, ensuring quality and timely completion.</li>
+    <li>Logistics & Setup: Handled the transport and setup of booth equipment, tents, and food displays at the Ramadan bazaar site.</li>
+    <li>Sales & Customer Service: Managed front-end sales and engaged with customers to ensure a smooth, efficient, and clean operation.</li>
+
+    </ul>
+    <a href="https://www.instagram.com/cushycandy/" class="more-btn" target="_blank">Click to know more</a>
+  </div>
+
+
+  <div class="card">
+    <div class="label">July - Sept 2025</div>
+    <h3 class="box-title">Foxboro (M) Sdn. Bhd</h3>
+    <span class="box-subtitle">Industrial Trainee / Intern</span>
+    <ul class="box-list">
+    <li>Supported the Operations Unit, Customer Service Department (CSD), in assisting engineers and staff with daily operations, including Purchase Requisitions (PR), Travel Requisitions (TR), Shipment Release Notes (SRN), petty cash claims, and billing forecasts. </li>
+    <li>Assisted in maintaining project documentation by updating e-timesheets, handling Vendor Document Register List (VDRL) submissions, and coordinating approvals with HR, Finance, SCM, and PMCE.</li>
+    <li>Involved in CIDB project registration via CIMS, including data entry of financial and contract details, ensuring compliance and accuracy. Gained exposure to operations management, procurement workflows, and organizational processes through hands-on administrative and technical documentation tasks.</li>
+
+    </ul>
+    <a href="https://foxmay.com.my/" class="more-btn" target="_blank">Click to know more</a>
+  </div>
+</section>
+
+<div class="filmstrip-container">
+    <div class="filmstrip">
+        <div class="film-box" style="background-image: url('images/cc1.jpeg');"><div class="film-overlay">The aftermath of heavy rain at the Bazaar Ramadan</div></div>
+        <div class="film-box" style="background-image: url('images/cc2.jpeg');"><div class="film-overlay">Our Special Kerabu Maggi in the Making</div></div>
+        <div class="film-box" style="background-image: url('images/cc3.jpeg');"><div class="film-overlay">Well-known celebrities Anna Jobling and Meerqeen buying our baby pancakes</div></div>
+        <div class="film-box" style="background-image: url('images/cc4.jpeg');"><div class="film-overlay">Various desserts freshly made</div></div>
+        <div class="film-box" style="background-image: url('images/cc5.jpeg');"><div class="film-overlay">CushyCandy</div></div>
+        <div class="film-box" style="background-image: url('images/fb1.jpeg');"><div class="film-overlay">Standing proudly at MERCU PICORP, Foxboro(M) SDN. BHD.</div></div>
+        <div class="film-box" style="background-image: url('images/fb2.jpeg');"><div class="film-overlay">My Email Label across Foxmay system</div></div>
+        <div class="film-box" style="background-image: url('images/fb3.jpeg');"><div class="film-overlay">Foboro's Physical Documentation</div></div>
+        <div class="film-box" style="background-image: url('images/fb4.jpeg');"><div class="film-overlay">My Last day at Foxboro</div></div>
+        <div class="film-box" style="background-image: url('images/fb5.jpeg');"><div class="film-overlay">Foxboro's Invoice Schedule to comply with PETRONAS</div></div>
+
+    </div>
+    <p style="text-align: center; font-size: 12px; color: #888; font-style: italic; margin-top: 15px;">scroll for media archives of my working experience</p>
+</div>
+
+<h2 class="section-header" id="community">Community & Volunteering</h2>
+<section class="grid-container">
+  
+  <div class="card">
+    <div class="img-wrapper">
+      <img src="images/mbsa.jpeg" alt="MBSA" class="box-img img-4-3">
+      <div class="box-overlay">Together we save food, together we feed the community</div>
+    </div>
+
+    <div class="label">Ramadan 2025</div>
+    <h3 class="box-title">MBSA MySave Food</h3>
+    <span class="box-subtitle">Community Volunteer</span>
+    <ul class="box-list">
+        <li><strong>Food Surplus:</strong> Assisted in collecting unsold food and beverages 
+         from bazaar vendors to minimize waste and support those in need.</li>
+        <li><strong>Quality Control:</strong> Helped with sorting, weighing, and repackaging 
+        food into appropriate containers for redistribution.</li>
+        <li><strong>Distribution:</strong> Contributed to organizing and distributing 
+        meals to nearby mosques, suraus, apartments, and underprivileged communities after iftar.</li>
+     </ul>
+    <a href="https://www.mymbsa.gov.my/" class="more-btn" target="_blank">Click to know more</a>
+  </div>
+
+  <div class="card">
+    <div class="img-wrapper">
+      <img src="images/wq.jpeg" alt="Run" class="box-img img-4-3">
+      <div class="box-overlay">A picture taken during volunteering with <br> Yang Mulia Tengku Puteri Jihan Azizah ‘Athiyatullah
+
+</div>
+    </div>
+
+    <div class="label">August 2023</div>
+    <h3 class="box-title">WQ Park Kuantan</h3>
+    <span class="box-subtitle">Event Volunteer</span>
+    <ul class="box-list">
+        <li><strong>Coordination:</strong> Assisted in coordinating a “Light Up The Town Run, Kuantan 2023” 
+            featuring Pahang Royals and disabled participants, ensuring an inclusive experience.</li>
+        <li><strong>Inclusivity:</strong> Provided guidance, managed logistics, and supported runners throughout the event.
+Helped with registration, hydration stations, and crowd control to ensure smooth operations.</li>
+                </ul>
+
+    <a href="https://wqpark.com.my/" class="more-btn" target="_blank">Click to know more</a>
+  </div>
+
+
+</section>
+
+<a href="#top" class="back-to-top">↑</a>
+<iframe src="footer.html" width="100%" height="120px" frameborder="0" scrolling="no" style="border:none; margin-top:50px;"></iframe>
+</body>
+</html>

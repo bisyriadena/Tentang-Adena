@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bisyri Adena — Hopes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --fuchsia: #d45a8d;
+      --soft-pink: #fdf2f5;
+      --text: #5a4a4a;
+      --shadow-timbul: 0 20px 45px rgba(212, 90, 141, 0.2);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-size: cover;
+      color: var(--text);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(255, 250, 251, 0.3);
+      z-index: -1;
+    }
+
+
+.header-section {
+    padding: 140px 8% 40px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.intro-left h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(50px, 8vw, 95px); 
+    font-weight: 700;
+    font-style: italic;
+    color: var(--fuchsia);
+    margin: 0;
+    line-height: 1.1;
+}
+
+.intro-left p {
+    font-family: 'Playfair Display', serif; 
+    font-style: italic; 
+    font-size: 20px; 
+    color: #8a7373; 
+    margin-top: 10px;    
+    max-width: 550px; 
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+    .filmstrip-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    .filmstrip-container {
+      width: 480px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 255);
+      backdrop-filter: blur(10px);
+      border-radius: 35px;
+      box-shadow: var(--shadow-timbul);
+      display: flex; gap: 15px; 
+      overflow-x: auto; 
+      scrollbar-width: none;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    .filmstrip-container::-webkit-scrollbar { display: none; }
+    .film-box {
+      min-width: 160px; height: 220px;
+      background: #fff; border: 4px solid #fff;
+      border-radius: 15px; flex-shrink: 0;
+      background-size: cover; background-position: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .scroll-hint {
+      margin-top: 12px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--fuchsia);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+
+    .main-container {
+      max-width: 1450px;
+      margin: 0 auto;
+      padding: 0 5% 100px;
+    }
+
+    .row-top, .row-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.3fr;
+      gap: 30px;
+      margin-bottom: 35px;
+      align-items: start; 
+    }
+    
+    .row-middle {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      margin-bottom: 35px;
+    }
+
+    .hope-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 20px 20px 15px 20px;
+      border-radius: 35px;
+      box-shadow: var(--shadow-timbul);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      text-align: center;
+      display: flex; flex-direction: column;
+      transition: 0.4s ease;
+    }
+    .hope-card:hover { transform: translateY(-5px); }
+    .pic-holder {
+      width: 100%; height: 230px;
+      background-size: cover; background-position: center;
+      border-radius: 20px; margin-bottom: 15px;
+      border: 3px solid white;
+    }
+    .hope-card p { font-size: 14px; line-height: 1.6; font-weight: 300; color: #6a5a5a; }
+
+    /* MP3 PLAYER BOX */
+    .mp3-player {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 25px; 
+      border-radius: 35px;
+      box-shadow: var(--shadow-timbul);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      text-align: center;
+    }
+    .audio-description { margin-top: 15px; }
+
+    .mp3-player .audio-description p {
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+.mp3-player .audio-description {
+    text-align: left;  
+}
+
+
+.paper-box {
+  background: none;  
+  min-height: auto; 
+  padding: 0;    
+  display: flex; 
+  align-items: flex-start; 
+  justify-content: center;
+  margin-top: -50px;  
+}
+
+.single-paper-pic {
+  width: 100%;      
+  max-width: 500px; 
+  height: auto;
+  transform: rotate(-2deg);
+
+  filter: drop-shadow(15px 25px 30px rgba(0,0,0,0.25));
+  
+  transition: transform 0.3s ease;
+}
+
+.single-paper-pic:hover {
+  transform: rotate(0deg) scale(1.02); 
+}
+
+    .back-to-top {
+      position: fixed; bottom: 30px; right: 30px;
+      background: var(--fuchsia); color: white; width: 50px; height: 50px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      text-decoration: none; z-index: 1001; transition: 0.3s;
+    }
+
+    @media (max-width: 1100px) {
+      .header-section { flex-direction: column; text-align: center; }
+      .filmstrip-wrapper { align-items: center; }
+      .filmstrip-container { width: 100%; }
+      .row-top, .row-middle, .row-bottom { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body class="bg-umum">
+    <iframe src="header.html" width="100%" height="55px" frameborder="0" scrolling="no" style="position:fixed; top:0; left:0; z-index:9999; border:none;"></iframe>
+
+<header class="header-section">
+    <div class="intro-left">
+        <h1>Quite Hopes</h1>
+        <p>These are the hopes I carry quietly—things I pray for, grow into, and leave 
+            to time. Nothing grand, just a life that feels warm, enough, and sincere.</p>
+    </div>
+    
+    <div class="filmstrip-wrapper">
+        <div class="filmstrip-container">
+            <div class="film-box" style="background-image: url('images/lp4.png')"></div>
+            <div class="film-box" style="background-image: url('images/lp5.jfif')"></div>
+            <div class="film-box" style="background-image: url('images/lp6.jpeg')"></div>
+            <div class="film-box" style="background-image: url('images/lp1.jpeg')"></div>
+            <div class="film-box" style="background-image: url('images/lp2.jpeg')"></div>
+            <div class="film-box" style="background-image: url('images/lp3.jpeg')"></div>
+            <div class="film-box" style="background-image: url('images/lp7.jfif')"></div>
+            <div class="film-box" style="background-image: url('images/lp8.jpeg')"></div>
+            <div class="film-box" style="background-image: url('images/lp9.jfif')"></div>
+            <div class="film-box" style="background-image: url('images/lp10.jpeg')"></div>
+            <div class="film-box" style="background-image: url('images/lp11.jfif')"></div>
+            <div class="film-box" style="background-image: url('images/lp12.jpeg')"></div>
+            <div class="film-box" style="background-image: url('images/lp13.jpeg')"></div>
+            <div class="film-box" style="background-image: url('images/lp14.jpeg')"></div>
+            <div class="film-box" style="background-image: url('images/lp15.jpeg')"></div>
+            <div class="film-box" style="background-image: url('images/lp16.jpeg')"></div>
+            <div class="film-box" style="background-image: url('images/lp17.jpeg')"></div>
+            <div class="film-box" style="background-image: url('images/lp18.jpeg')"></div>
+            <div class="film-box" style="background-image: url('images/lp19.jpeg')"></div>
+            <div class="film-box" style="background-image: url('images/lp20.jpeg')"></div>
+
+        </div>
+        <div class="scroll-hint">scroll to see more <i>best-loved Adena.</i></div>
+    </div>
+</header>
+
+<div class="main-container">
+    <div class="row-top">
+        <div class="hope-card">
+            <div class="pic-holder" style="background-image: url('images/h1.jpeg')"></div>
+            <p>I hope to have and build a loving and peaceful family of mine, where there is understanding, support, and warmth even during difficult times.
+</p>
+        </div>
+        <div class="hope-card">
+            <div class="pic-holder" style="background-image: url('images/fam.gif')"></div>
+            <p>I I hope to repay my parents’ sacrifices, not only through success, but by being present, caring, and making them proud.
+</p> </div>
+
+<div class="mp3-player">
+    <audio controls src="audio/tapiditerima.mp3" style="width: 100%;"></audio>
+    <div class="audio-description">
+        <p style="font-family: 'Playfair Display', serif; font-style: italic; color: var(--fuchsia); font-size: 18px; margin: 0;">"Tapi Diterima"</p>
+        <p style="font-size: 13px; color: #8a7373; margin-top: 5px; line-height: 1.5;">
+            As a quiet closing, I chose a song that feels close to my heart. <i>Tapi Diterima — Nadin Amizah</i>
+        </p><br>
+        <p style="font-size: 13px; color: #8a7373; margin-top: 5px; line-height: 1.5;">
+            “Belum pernah aku, berusaha sebegitu, tapi di tanganmu aku tumbuh.”
+        </p><br>
+        <p style="font-size: 13px; color: #8a7373; margin-top: 5px; line-height: 1.5;">
+            These lyrics mean that with someone’s care, support, and acceptance, we can grow and transform in ways we never imagined.
+        </p>
+    </div>
+</div>
+
+
+
+</div> <div class="row-middle">
+        <div class="hope-card"><div class="pic-holder" style="background-image: url('images/hfc.jpeg')"></div><p>I hope to become financially stable and comfortable, enough to live without constant worry and to enjoy life in a simple way.</p></div>
+        <div class="hope-card"><div class="pic-holder" style="background-image: url('images/ekal.jpeg')"></div><p>I hope to have friendships that last, growing together and staying connected even as life changes.</p></div>
+        <div class="hope-card"><div class="pic-holder" style="background-image: url('images/h5.jpeg')"></div><p>I hope to complete my studies until the end, staying consistent and strong.</p></div>
+        <div class="hope-card"><div class="pic-holder" style="background-image: url('images/hcm.jpeg')"></div><p>I hope to continue greeting my classmates in the future, or at least sharing a smile—keeping things kind and respectful even after time passes.
+</p></div>
+    </div>
+
+    <div class="row-bottom">
+        <div class="hope-card">
+          <div class="pic-holder" style="background-image: url('images/h6.jpeg')"></div>
+          <p>I hope to do my best in my deen—as someone who strives in faith, actions, and intentions. For any shortcomings, I seek Allah SWT’s guidance and forgiveness with an open heart.</p>
+        </div>
+        <div class="hope-card">
+          <div class="pic-holder" style="background-image: url('images/h8.jpeg')"></div>
+          <p>I hope I’m remembered gently—as someone who smiled often, kept trying even when it was hard, and meant well. For any mistakes along the way, I seek forgiveness with an open heart.</p>
+        </div>
+        <div class="paper-box">
+            <img src="images/REMOVED.png" class="single-paper-pic">
+        </div>
+    </div>
+</div>
+
+
+<a href="#top" class="back-to-top">↑</a>
+<iframe src="footer.html" width="100%" height="120px" frameborder="0" scrolling="no" style="border:none; margin-top:50px;"></iframe>
+
+</body>
+</html>

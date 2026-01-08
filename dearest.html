@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yang Aku Simpan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --fuchsia: #d45a8d;
+      --soft-pink: #fdf2f5;
+      --text: #5a4a4a;
+      --shadow-flat: 0 4px 10px rgba(0, 0, 0, 0.05);
+      --shadow-timbul: 0 20px 40px rgba(212, 90, 141, 0.2), 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-size: cover;
+      color: var(--text);
+    }
+
+    body::before {
+      content: "";
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(255, 250, 251, 0.4); z-index: -1;
+    }
+
+    nav {
+        position: fixed; top: 0; left: 0; width: 100%;
+        background: rgba(255, 228, 236, 0.95);
+        padding: 15px 40px; display: flex; gap: 30px; z-index: 1000;
+        box-shadow: 0 4px 15px rgba(212, 90, 141, 0.1);
+    }
+    nav a {
+        text-decoration: none; color: var(--fuchsia);
+        font-size: 14px; text-transform: lowercase; transition: 0.3s;
+    }
+    nav a:hover { transform: translateY(-3px); }
+
+    .page-intro {
+        padding: 120px 10% 40px;
+        text-align: center;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif; font-size: 54px; font-weight: 700;
+      font-style: italic; color: var(--fuchsia); margin-bottom: 20px;
+    }
+    
+.jump-nav-wrapper {
+    background-color: transparent;
+    width: 100%;
+    padding: 5px 0;
+    margin: 5px 0 40px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.intro-section h1 {
+    margin-bottom: 0; 
+}
+
+.intro-section {
+    
+    padding: 130px 10% 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px; 
+}
+
+.hero-subtext {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: #8a7373;
+    line-height: 1.5; 
+    margin-top: 0;
+    font-weight: 400;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.intro-png-container {
+    width: 50px; 
+    height: auto;
+    margin: 5px auto;
+}
+
+.intro-png {
+    width: 100%;
+    opacity: 0.7;
+    display: block;
+}
+
+    .category-header {
+        font-family: 'Playfair Display', serif;
+        font-size: 42px; font-style: italic;
+        color: var(--fuchsia);
+        text-align: center; margin: 60px 0 30px;
+        text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+    }
+
+    .dearest-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        padding: 0 10% 60px;
+    }
+
+    .dearest-item {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(5px);
+        padding: 20px;
+        border-radius: 25px;
+        box-shadow: var(--shadow-flat);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        display: flex; flex-direction: column; gap: 15px;
+    }
+    .dearest-item:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: var(--shadow-timbul);
+        background: rgba(255, 255, 255, 0.95);
+    }
+    .caption {
+        font-size: 13px; font-style: italic; color: #7a6a6a; text-align: center;
+    }
+    .caption strong { display: block; color: var(--fuchsia); margin-bottom: 5px; }
+
+.spotify-container {
+    width: 100%;
+    border-radius: 15px;
+    border: 4px solid white; 
+    overflow: hidden;
+    line-height: 0; 
+}
+
+.spotify-container iframe {
+    display: block;
+}
+    .movie-link-card { text-decoration: none; color: inherit; display: block; }
+    
+    .movie-poster {
+        width: 100%; aspect-ratio: 2/3; object-fit: cover;
+        border-radius: 12px 12px 0 0; border: 4px solid white; border-bottom: none;
+    }
+    .movie-info-box {
+        background: white; padding: 15px; text-align: left;
+        border-radius: 0 0 12px 12px; border: 4px solid white; border-top: none;
+    }
+    .movie-title {
+        font-family: 'Playfair Display', serif; font-weight: 800; font-size: 22px;
+        text-transform: uppercase; margin: 0; line-height: 1; color: black;
+    }
+    .movie-year { font-weight: 300; font-size: 18px; color: #555; }
+    .movie-credits { font-size: 10px; text-transform: uppercase; color: #888; margin-top: 12px; line-height: 1.6; font-family: 'Poppins', sans-serif;}
+
+    .content-media {
+        width: 100%; border-radius: 15px; border: 4px solid white;
+        object-fit: cover; max-height: 400px;
+    }
+
+    @media (max-width: 900px) { .dearest-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .dearest-grid { grid-template-columns: 1fr; } }
+ 
+.movie-poster-a3 {
+    width: 100%;
+    max-width: 100%; 
+    aspect-ratio: 1 / 1.414; 
+    object-fit: cover;
+    border: none !important;
+    border-radius: 0 !important;
+    display: block;
+}
+
+
+.more-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 20px;
+    border: 1.5px solid var(--fuchsia);
+    color: var(--fuchsia);
+    text-decoration: none;
+    border-radius: 50px; 
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.more-btn:hover {
+    background: var(--fuchsia);
+    color: white;
+}
+
+
+
+.dearest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;           
+    
+    padding: 20px 80px;   
+    max-width: 1400px; 
+    margin: 0 auto; 
+}
+
+@media (max-width: 768px) {
+    .dearest-grid {
+        padding: 20px 20px; 
+    }
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    padding: 20px 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+    .movie-grid { grid-template-columns: repeat(2, 1fr); } 
+}
+@media (max-width: 600px) {
+    .movie-grid { grid-template-columns: 1fr; padding: 20px; } 
+}
+
+.dearest-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Ratio 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.caption {
+    padding: 10px 5px;
+}
+
+
+.food-section-wrapper {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Header Styling */
+.food-header {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.header-text {
+    color: #ff6699;
+    font-weight: normal;
+}
+
+.header-script {
+    color: #ff6699;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 2.8rem;
+    margin-left: 10px;
+}
+
+.food-section-wrapper {
+    max-width: 1000px; 
+    margin: 60px auto;
+    padding: 0 40px;
+}
+
+.header-script {
+    font-family: 'Brush Script MT', cursive; 
+    font-size: 50px;
+    font-style: italic;
+    color: var(--fuchsia);
+}
+
+.food-quote {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: var(--text);
+}
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.food-pill {
+    background-color: #FACDCE; 
+    padding: 
+    border-radius:
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: #333;
+    text-align: left; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.food-pill:hover {
+    transform: translateY(-5px); 
+    background-color: #f8b8ba; 
+    
+    box-shadow: 0 10px 20px rgba(212, 90, 141, 0.2); 
+}
+
+.food-section-wrapper {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 40px;
+    text-align: center;
+}
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.food-link {
+    text-decoration: none;
+    display: block;
+}
+
+.food-pill {
+    background-color: #fdf2f5;
+    padding: 15px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #5a4a4a;
+    border: 1px solid #f2d5dd;
+    transition: 0.3s;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.03);
+}
+
+.food-pill:hover {
+    background-color: var(--soft-pink);
+    transform: translateY(-3px);
+    border-color: var(--fuchsia);
+    color: var(--fuchsia);
+}
+
+@media (max-width: 768px) {
+    .food-grid { grid-template-columns: 1fr; }
+}
+
+.jump-nav-wrapper {
+    background-color: transparent; 
+    width: 100%;
+    padding: 10px 0;
+    margin: 20px 0 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.jump-nav-content {
+    display: flex;
+    gap: 40px;
+    padding: 15px 20px;
+    border-top: 1px solid #eecad5; 
+    border-bottom: 1px solid #eecad5;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.jump-nav-content a {
+    text-decoration: none;
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: lowercase;
+    transition: 0.3s ease;
+}
+
+.jump-nav-content a:hover {
+    color: var(--fuchsia);
+}
+
+
+h2[id], div[id].food-section-wrapper {
+    scroll-margin-top: 120px; 
+}
+
+
+</style>
+</head>
+
+
+<body class="bg-umum">
+    <iframe src="header.html" width="100%" height="55px" frameborder="0" scrolling="no" style="position:fixed; top:0; left:0; z-index:9999; border:none;"></iframe>
+
+
+<section class="intro-section">
+    <h1>Yang Aku Simpan</h1>
+    
+    <div class="intro-png-container">
+        <img src="images/ribbon.png" alt="decoration" class="intro-png">
+    </div>
+
+    <p class="hero-subtext">
+        This page is a quiet return. A place where favourite songs, familiar faces, and small joys come together and feel safe to stay.
+    </p>
+</section>
+
+
+<div class="jump-nav-wrapper">
+    <div class="jump-nav-content">
+        <a href="#songs">songs</a>
+        <a href="#artists">artists</a>
+        <a href="#movies">movies</a>
+        <a href="#dramas">dramas</a>
+        <a href="#food">food</a>
+        <a href="#joy">little joy</a>
+    </div>
+</div>
+
+<h2 id="songs" class="category-header">My Dearest: Songs</h2>
+<section class="dearest-grid">
+
+    <div class="dearest-item">
+        <div class="spotify-container">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/312z6PZ8wwREck8613PkJk?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</div>
+        <div class="caption">
+            <strong>A Couple Minutes By Olivia Dean</strong>
+            I return to this song on rainy days, listening quietly in my car, letting it calm my thoughts and hold me for a while.
+        </div>
+    </div>
+    <div class="dearest-item">
+        <div class="spotify-container">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/1tqPw8Hf88h24Bpt2SzuYE?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="caption">
+            <strong>Di Akhir Perang by Nadin Amizah</strong>
+            This song feels like quiet healing after a long emotional battle. It brings calm and reminds me that softness can exist even after pain.
+        </div>
+    </div>
+
+    <div class="dearest-item">
+        <div class="spotify-container">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0P3YLLto0LmRo7z6o0Cyz9?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="caption">
+            <strong>Raga By Naykilla</strong>
+            This song is fun, upbeat, and full of playful energy.
+        </div>
+    </div>
+
+    <div class="dearest-item">
+        <div class="spotify-container">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6oCXDaFZYL7sHnowv6pdXb?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>        <div class="caption">
+            <strong>Spring Into Summer by Lizzy McAlpine</strong>
+            This song feels like seasons changing, yet the heart still running back to the same place.
+        </div>
+    </div>
+
+    <div class="dearest-item">
+        <div class="spotify-container">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3uUJsNW9TAYqqq1rBZDy1o?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div> <div class="caption">
+            <strong>Sambung By Pamungkas</strong>
+            This song feels like dreaming about growing old with someone, choosing each other through every season.
+        </div>
+    </div>
+
+
+        <div class="dearest-item">
+        <div class="spotify-container">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1EppOKM1oidSO4?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div> <div class="caption">
+Here is my recent On Repeat playlist on Spotify        </div>
+    </div>
+
+</section> 
+
+
+
+</section> <h2 id="artists" class="category-header">My Dearest: Artist</h2>
+<section class="dearest-grid">
+    
+    <div class="dearest-item">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/00x1fYSGhdqScXBRpSj3DW?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>          <div class="caption">
+            <strong>Olivia Dean</strong>
+Olivia Dean’s music feels warm and comforting. Her voice has a gentle way of slowing everything down, and I ESPECIALLY love “It Isn’t Perfect but It Might Be” and “Let Alone The One You Love” for their honesty and the reminder that it is okay to be imperfect while still striving to become better.        </div>
+    </div>
+
+    <div class="dearest-item">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/7tYKF4w9nC0nq9CsPZTHyP?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>          <div class="caption">
+            <strong>SZA</strong>
+SZA became my top artist on Spotify, and her music holds a special place for me. I especially love SOS Deluxe: LANA, as the album feels honest, emotional, and deeply relatable, making it one of the projects I always return to.        </div>
+    </div>
+
+    <div class="dearest-item">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/6vP4azTCk053nGL0xAYnVH?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>        <div class="caption">
+            <strong>Tenxi</strong>
+            This might sound unexpected, but as time goes by, I started to like Tenxi’s music. Once you get into the hipdut vibe, it’s genuinely enjoyable.
+        </div>
+    </div>
+
+    <div class="dearest-item">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/66CXWjxzNUsdJxJ2JdwvnR?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>        <div class="caption">
+            <strong>Ariana Grande</strong>
+            Her music feels honest and emotionally layered, capturing themes of love, growth, and self-reflection in a way that feels real rather than forced, making her songs timeless and easy to return to.
+         </div>
+    </div>
+
+        <div class="dearest-item">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/20zafXaLhm5IcXnSU93rNn?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>        <div class="caption">
+            <strong>Nadin Amizah</strong>
+I love Nadin Amizah because ALL of her music feels intimate and poetic, almost like reading a personal journal. Her lyrics are gentle yet deep, often expressing emotions that are hard to put into words, which makes her songs comforting and relatable. Listening to her music feels like being understood quietly, without needing too much explanation.        </div>
+    </div>
+
+
+        <div class="dearest-item">
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/47z98pKd71yIbgXwe9LPVC?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>        <div class="caption">
+            <strong>Bernadya</strong>
+I love Bernadya because her music carries a quiet sadness that feels honest and unforced. I’ve been lucky to see her live in concert twice, and even in those lively moments, there was a bittersweet depth to her songs that stayed with me. Listening to her feels like being allowed to sit with my feelings — sad, reflective, but somehow comforting.        </div>
+    </div>
+
+
+</section> 
+
+
+<h2 id="movies" class="category-header">My Dearest: Movie</h2>
+<section class="movie-grid"> <div class="dearest-item" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; align-items: center;"> 
+        <img src="images/1.png" alt="Sejoli" class="movie-poster-a3">
+        <div style="padding-top: 15px;">
+            <a href="https://mubi.com/en/films/sejoli/trailer" class="more-btn" target="_blank">
+                Click to watch the teaser !
+            </a>
+        </div>
+        <div class="caption" style="padding: 10px 20px 25px; margin-top: 0;"> 
+            I really love lightweight movies that you can just put on and enjoy, and Sejoli hits that spot every time. I’ve rewatched it so often and still laugh at all the same parts. It’s a classic! It also doesn't hurt that it stars Bront Palarae—he’s been my childhood crush and he’s just so attractive in this role.
+        </div>
+    </div>
+
+    <div class="dearest-item" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; align-items: center;"> 
+        <img src="images/2.png" alt="Komang" class="movie-poster-a3">
+        <div style="padding-top: 15px;">
+            <a href="https://youtu.be/BpvnEiG9bTE?si=kvXd_woj31Ea1DHr" class="more-btn" target="_blank">
+                Click to watch the teaser !
+            </a>
+        </div>
+        <div class="caption" style="padding: 10px 20px 25px; margin-top: 0;"> 
+           I’m still thinking about Komang after seeing it in the cinema. It’s one of those movies that really stays with you, especially because it’s a true story. I’m in total awe of how Raim Laode fought for his relationship. Even when everything was against them—background, religion, and finances—he never gave up and went to Jakarta to make his dreams a reality. Plus, his voice is amazing! 'Komang' is obviously a masterpiece, but 'Lesung Pipi' is just the best. Such a soulful movie.
+        </div>
+    </div>
+
+     <div class="dearest-item" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; align-items: center;"> 
+        <img src="images/3.png" alt="Love Reset" class="movie-poster-a3">
+        <div style="padding-top: 15px;">
+            <a href="https://youtu.be/m62-gHnLwkY?si=ea4FrfHN1msbnG99" class="more-btn" target="_blank">
+                Click to watch the teaser !
+            </a>
+        </div>
+        <div class="caption" style="padding: 10px 20px 25px; margin-top: 0;"> 
+If you love a good romantic comedy, Love Reset is a must-watch. It takes the classic 'amnesia' trope and turns it into something so fresh and funny. I loved the irony of them losing their memories right before their divorce was finalized. It’s so funny to see how, without all the baggage and resentment, they actually really like each other. It’s light, fast-paced, and kept me laughing from start to finish.
+        </div>
+    </div>  
+    
+        <div class="dearest-item" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; align-items: center;"> 
+        <img src="images/4.png" alt="How To Lose a Guy in 10 Days" class="movie-poster-a3">
+        <div style="padding-top: 15px;">
+            <a href="https://youtu.be/EiHLFK7Fo0s?si=KaeTAUNcFdc4c0Du" class="more-btn" target="_blank">
+                Click to watch the teaser !
+            </a>
+        </div>
+        <div class="caption" style="padding: 10px 20px 25px; margin-top: 0;"> 
+If we’re talking about the GOAT of rom-coms, it’s definitely How to Lose a Guy in 10 Days. Kate Hudson and Matthew McConaughey have chemistry that is just unmatched. I love the chaos of their 'double mission'—it’s so funny watching them try to outsmart each other while accidentally falling in love. It’s the kind of movie I can leave on in the background or watch properly for the 50th time and still enjoy every second.        </div>
+    </div></div>
+
+        <div class="dearest-item" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; align-items: center;"> 
+        <img src="images/5.png" alt="Fear Street Part Two: 1978" class="movie-poster-a3">
+        <div style="padding-top: 15px;">
+            <a href="https://youtu.be/eR2KSY1fipo?si=3hgmOY_wPHHa2Ki9" class="more-btn" target="_blank">
+                Click to watch the teaser !
+            </a>
+        </div>
+        <div class="caption" style="padding: 10px 20px 25px; margin-top: 0;"> 
+For me, no thriller movie can top the Fear Street trilogy, and Part 2: 1978 is hands-down the best. I love how the story is told in reverse—it keeps you in constant suspense. You start with the chaos in 1994, and then 1978 comes in to explain how it all started. It’s that 'Aha!' moment when you realize 'Oh, so this is why she is like that' or 'This is where the curse began' that makes it so satisfying to watch. It’s clever, thrilling, and completely hooks you.
+</div> </div> 
+
+        <div class="dearest-item" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; align-items: center;"> 
+        <img src="images/6.png" alt="Five Nights At Freddy's" class="movie-poster-a3">
+        <div style="padding-top: 15px;">
+            <a href="https://youtu.be/0VH9WCFV6XQ?si=996J9NiWIgZXt48M" class="more-btn" target="_blank">
+                Click to watch the teaser !
+            </a>
+        </div>
+        <div class="caption" style="padding: 10px 20px 25px; margin-top: 0;"> 
+If we’re talking about iconic horror movies, Five Nights at Freddy’s really stands out. I love how it combines creepy suspense with an emotional backstory, making it more than just a typical jumpscare film. The mystery behind the animatronics keeps me hooked, and it’s a movie I can rewatch and still enjoy every time. I am very excited and can't wait for the upcoming FNAF 2 sequence.</div>    </div> </div>
+
+        <div class="dearest-item" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; align-items: center;"> 
+        <img src="images/7.png" alt="The Elixir" class="movie-poster-a3">
+        <div style="padding-top: 15px;">
+            <a href="https://youtu.be/XL48F7LGoig?si=LrycELkdUv3tf_VT" class="more-btn" target="_blank">
+                Click to watch the teaser !
+            </a>
+        </div>
+        <div class="caption" style="padding: 10px 20px 25px; margin-top: 0;"> 
+Abadi Nan Jaya (The Elixir) stands out for its mix of emotion and quiet humor. I enjoy it especially because I like zombie-type movies; watching how slow and awkward the zombies move is oddly amusing and helps me unwind. The film feels simple but engaging, making it easy to enjoy without overthinking.        </div>
+    </div>
+
+         <div class="dearest-item" style="padding: 0; overflow: hidden; display: flex; flex-direction: column; align-items: center;"> 
+        <img src="images/AVATAR.png" alt="Avatar: The Way of Water" class="movie-poster-a3">
+        <div style="padding-top: 15px;">
+            <a href="https://youtu.be/d9MyW72ELq0?si=PVDXje2Zoqvz-LuN" class="more-btn" target="_blank">
+                Click to watch the teaser !
+            </a>
+        </div>
+        <div class="caption" style="padding: 10px 20px 25px; margin-top: 0;"> 
+I’ve been a fan of Avatar since Season 1—like literally, I love the characters. I was so sad when Neteyam died in Season 2, but I could really feel Lo'ak’s emotions in Seasons 2 and 3, and I relate to him so much. I even watched all three in the cinema, and I just can’t wait for the next season in 2029—I need to see more!        </div>
+    </div>  
+
+
+
+
+
+
+</section> 
+
+<h2 id="dramas" class="category-header">My Dearest: Drama and Series</h2>
+
+<section class="dearest-grid">
+    <div class="dearest-item" style="text-align: center; justify-content: center; padding: 30px 20px;">
+        <div class="caption">
+            <strong>Crash Landing on You</strong>
+            CLOY is my absolute #1 because it’s just so heart-touching and emotional. The chemistry between the leads is on another level, and knowing they actually got married in real life makes it special.
+            <br>
+            <a href="https://asianwiki.com/Crash_Landing_on_You" class="more-btn" target="_blank">Click to read more !</a>
+        </div>
+    </div>
+
+    <div class="dearest-item" style="text-align: center; justify-content: center; padding: 30px 20px;">
+        <div class="caption">
+            <strong>Cheer Up</strong>
+            It’s just such a fun, high-energy drama that’s perfect for a good mood. I love the main female character and how she portrays the realness in her acting. I love the youthful campus vibe.
+            <br>
+            <a href="https://asianwiki.com/Cheer_Up_(2022)" class="more-btn" target="_blank">Click to read more !</a>
+        </div>
+    </div>
+
+    <div class="dearest-item" style="text-align: center; justify-content: center; padding: 30px 20px;">
+        <div class="caption">
+            <strong>The Secret Life of My Secretary</strong>
+            It’s such a fun and lighthearted drama that’s perfect for a laugh. I honestly love Veronica Park the most; she’s so chaotic and iconic that she steals every single scene!
+            <br>
+            <a href="https://asianwiki.com/The_Secret_Life_of_My_Secretary" class="more-btn" target="_blank">Click to read more !</a>
+        </div>
+    </div>
+
+    <div class="dearest-item" style="text-align: center; justify-content: center; padding: 30px 20px;">
+        <div class="caption">
+            <strong>My Sweet Mobster</strong>
+            I love how it's such a chill, easy watch with a cute storyline. It’s the perfect lightweight drama for when you just want something entertaining but not too serious.
+            <br>
+            <a href="https://asianwiki.com/My_Sweet_Mobster" class="more-btn" target="_blank">Click to read more !</a>
+        </div>
+    </div>
+
+    <div class="dearest-item" style="text-align: center; justify-content: center; padding: 30px 20px;">
+        <div class="caption">
+            <strong>Because This is My First Life</strong>
+            It’s honestly one of the best because the story is so simple and doesn't try too hard. The quiet vibe and their unique housemate situation make it a top-tier watch.
+            <br>
+            <a href="https://asianwiki.com/Because_This_Is_My_First_Life" class="more-btn" target="_blank">Click to read more !</a>
+        </div>
+    </div>
+
+    <div class="dearest-item" style="text-align: center; justify-content: center; padding: 30px 20px;">
+        <div class="caption">
+            <strong>Tomorrow</strong>
+            The storyline is strong, emotional, and well-written, with meaningful messages that keep me engaged. On top of that, Lee Soo Hyuk’s handsome appearance make the drama even more enjoyable.
+            <br>
+            <a href="https://asianwiki.com/Tomorrow_(Korean_Drama)" class="more-btn" target="_blank">Click to read more !</a>
+        </div>
+    </div>
+</section>
+
+
+<div id="food" class="food-section-wrapper">
+    <h2 class="category-header">My Dearest: Food</h2>
+    
+    <p class="food-quote">
+        I do not have a specific favorite meal; in fact, I rarely choose to repeat the same dish, a habit even my friends have observed. The main dish doesn’t matter much to me because desserts and sides will be always the highlight of my day.
+    </p>
+
+    <div class="food-grid">
+        <a href="images/buko.jpg" target="_blank" class="food-link"><div class="food-pill">Buko</div></a>
+        <a href="images/Taufufah.jpg" target="_blank" class="food-link"><div class="food-pill">Taufufah</div></a>
+        <a href="images/tongmo.jpeg" target="_blank" class="food-link"><div class="food-pill">Tongmo</div></a>
+        <a href="images/lokching.jpg" target="_blank" class="food-link"><div class="food-pill">Lokching</div></a>
+        <a href="images/popis.jpeg" target="_blank" class="food-link"><div class="food-pill">Popis</div></a>
+        <a href="images/icecream.jpeg" target="_blank" class="food-link"><div class="food-pill">Ice Cream</div></a>
+        <a href="images/sate.jpg" target="_blank" class="food-link"><div class="food-pill">Satay</div></a>
+        <a href="images/vsr.jpeg" target="_blank" class="food-link"><div class="food-pill">Vietnamese Spring Roll</div></a>
+        <a href="images/puding.png" target="_blank" class="food-link"><div class="food-pill">Pudding</div></a>
+    </div>
+</div>
+
+
+<h2 id="joy" class="category-header">My Dearest: Little Joy</h2>
+
+<section class="dearest-grid">
+    <div class="dearest-item">
+        <img src="images/walk.jpeg" alt="Walking" class="content-media" style="height: 250px;"> 
+        <div class="caption">
+            <strong>Walking & Nature</strong>
+            I enjoy briskwalking or taking walks with my earphones on, soaking in nature’s beauty. I used to love hiking and even tried marathon running, but due to my asthma, I have to avoid heavy activities. Simple walks keep me refreshed and happy.
+        </div>
+    </div>
+
+    <div class="dearest-item">
+        <img src="images/sight.jpeg" alt="Music" class="content-media" style="height: 250px;">
+        <div class="caption">
+            <strong>Sightseeing & Sunsets</strong>
+I enjoy sightseeing slowly, relaxing in calm places, and watching sunsets, taking time to truly appreciate each moment.    </div>
+    </div>
+    <div class="dearest-item">
+        <img src="images/food.jpeg" alt="Concerts" class="content-media" style="height: 250px;">
+        <div class="caption">
+            <strong>Food Exploration</strong>
+I enjoy exploring food, trying new desserts, street food, cooking simple meals, and sharing meals with friends.        </div>
+    </div>
+</div>
+    <div class="dearest-item">
+        <img src="images/punc.jpeg" alt="Dramas" class="content-media" style="height: 250px;">
+        <div class="caption">
+            <strong>Respect & Timeliness</strong>
+I appreciate punctual people, as timeliness shows respect and thoughtfulness toward others.        </div>
+    </div>
+</div>
+    <div class="dearest-item">
+        <img src="images/mean.jpeg" alt="Sunsets" class="content-media" style="height: 250px;">
+        <div class="caption">
+            <strong>Meaningful Moments</strong>
+I treasure meaningful social moments, like late-night talks, comfortable silences, and sitting quietly with people where we don’t have to force conversation.        </div>
+    </div></div>
+
+    <div class="dearest-item">
+        <img src="images/net.jpeg" alt="Makeup" class="content-media" style="height: 250px;">
+        <div class="caption">
+            <strong>Netflix times !</strong>
+I like watching K-dramas, romance movies, comfort shows, especially watch new movies at the cinema and sharing horror movies with friends.   </div> </div>
+
+    <div class="dearest-item">
+        <img src="images/concert.jpeg" alt="Food" class="content-media" style="height: 250px;">
+        <div class="caption">
+            <strong>Concerts and Emotions</strong>
+I enjoy attending concerts and music events, as they let me feel fully connected to music and emotions.        </div>
+    </div></div>
+
+    <div class="dearest-item">
+        <img src="images/makeup.jpeg" alt="Social" class="content-media" style="height: 250px;">
+        <div class="caption">
+            <strong>Makeup and Confidence</strong>
+I love doing makeup at a relaxed pace, experimenting with soft looks, and creating photo dumps.        </div>
+    </div></div>
+
+    <div class="dearest-item">
+        <img src="images/music.jpeg" alt="Punctuality" class="content-media" style="height: 250px;">
+        <div class="caption">
+            <strong>Music and Playlists</strong>
+I love listening to music, creating playlists based on my mood, and finding comfort in songs and lyrics.
+        </div>
+    </div>
+</section>
+
+
+<a href="#top" style="position: fixed; bottom: 30px; right: 30px; background: var(--fuchsia); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: var(--shadow-timbul);">↑</a>
+
+<iframe src="footer.html" width="100%" height="120px" frameborder="0" scrolling="no" style="border:none; margin-top:50px;"></iframe>
+
+</body>
+</html>

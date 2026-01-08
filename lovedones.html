@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loved Ones — Tentang Adena</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+  <style>
+    :root {
+      --fuchsia: #d45a8d;
+      --soft-pink: #fdf2f5;
+      --text: #5a4a4a;
+      --shadow-timbul: 0 15px 35px rgba(212, 90, 141, 0.25), 0 5px 15px rgba(0, 0, 0, 0.05);
+      --inner-light: inset 2px 2px 5px rgba(255, 255, 255, 0.8);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-size: cover;
+      color: var(--text);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(255, 250, 251, 0.4);
+      z-index: -1;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 64px; 
+      font-weight: 700;
+      font-style: italic; 
+      margin: 0;
+      line-height: 1.1;
+      color: var(--text);
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 600;
+      margin: 0;
+      color: var(--fuchsia);
+    }
+
+    h3 { font-family: 'Playfair Display', serif; font-size: 28px; margin: 10px 0 5px; color: var(--text); }
+    
+    .birthday { font-size: 14px; color: var(--fuchsia); font-weight: 500; margin-bottom: 15px; display: block; }
+
+    p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      font-weight: 300;
+      color: #6a5a5a;
+      text-align: left;
+    }
+
+    /* INTRO SECTION */
+
+.hero-subtext {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 20px; 
+    color: #8a7373; 
+    line-height: 1.6;
+    margin-top: 15px;
+    font-weight: 400;
+    max-width: 800px;
+}
+
+    .intro-section {
+      padding: 140px 10% 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+    }
+
+    .intro-png-container {
+        position: relative;
+        width: 380px; 
+        height: 320px; 
+    }
+
+    .intro-png { 
+        position: absolute;
+        border: none; 
+        box-shadow: none; 
+        background: transparent; 
+        transition: transform 0.3s ease;
+    }
+
+    .pfp-img {
+        width: 260px; 
+        top: 40px;
+        left: 80px; 
+        z-index: 1; 
+        transform: rotate(-5deg);
+        border-radius: 20px;
+        box-shadow: var(--shadow-timbul);
+        border: 8px solid white;
+    }
+
+    .ribbon-img {
+        width: 260px; 
+        top: 0;
+        left: 0; 
+        z-index: 2;
+    }
+
+    .intro-png-container:hover .intro-png {
+        transform: scale(1.05) translateY(-5px); 
+    }
+
+
+    .music-container { padding: 0 10% 40px; text-align: left; }
+    audio { 
+        width: 100%; 
+        max-width: 400px; 
+        height: 40px; 
+        filter: sepia(20%) saturate(70%) hue-rotate(280deg); 
+        box-shadow: var(--shadow-timbul);
+        border-radius: 30px;
+    }
+
+    .section-header-card {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        padding: 20px 40px;
+        border-radius: 15px; 
+        box-shadow: var(--shadow-timbul);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        margin: 60px 10% 20px;
+        text-align: left;
+    }
+
+    /* === 5:4 FORMAT FILMSTRIP === */
+    .filmstrip-container {
+        background: rgba(255, 255, 255, 0.3);
+        padding: 25px;
+        border-radius: 20px;
+        margin: 20px 10% 40px;
+        box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5); /* Inset shadow for container */
+    }
+
+    .filmstrip {
+        display: flex; 
+        gap: 20px; 
+        overflow-x: auto; 
+        padding-bottom: 15px;
+        scrollbar-width: none; 
+    }
+    .filmstrip::-webkit-scrollbar { display: none; }
+
+    .film-box { 
+        min-width: 350px; 
+        height: 280px; 
+        border-radius: 12px;
+        background-size: cover; 
+        background-position: center;
+        border: 6px solid white;
+        flex-shrink: 0;
+        position: relative;
+        overflow: hidden;
+        transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .film-box:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-timbul);
+    }
+
+    .film-box:hover .film-caption { transform: translateY(0); }
+
+    .film-caption {
+        position: absolute; bottom: 0; left: 0; right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        color: var(--fuchsia);
+        padding: 10px;
+        font-size: 12px;
+        text-align: center;
+        transform: translateY(100%);
+        transition: 0.3s ease;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      padding: 0 10% 60px;
+    }
+
+    .content-card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px; 
+      box-shadow: var(--shadow-timbul);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
+
+    .content-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .content-img {
+        width: 100%; aspect-ratio: 1 / 1;
+        border-radius: 15px; object-fit: cover;
+        margin-bottom: 20px; 
+        border: 6px solid white;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .top-btn {
+        position: fixed; bottom: 30px; right: 30px; 
+        background: var(--fuchsia); color: white; 
+        width: 50px; height: 50px; border-radius: 50%; 
+        display: flex; align-items: center; justify-content: center; 
+        text-decoration: none;
+        box-shadow: 0 10px 20px rgba(212, 90, 141, 0.4);
+        transition: 0.3s;
+    }
+
+    .top-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 15px 25px rgba(212, 90, 141, 0.5);
+    }
+
+  
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      padding: 0 10% 60px;
+      align-items: start; 
+    }
+
+.friends-layout {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr;
+    gap: 30px;
+    padding: 0 10%;
+    margin-bottom: 60px;
+    align-items: stretch;
+}
+.friends-layout h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--fuchsia);
+    text-transform: none;
+    margin-bottom: 15px;
+}
+
+.video-filmstrip-container {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-timbul);
+    border: 1px solid white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.video-filmstrip {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 600px; 
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.video-filmstrip::-webkit-scrollbar { width: 4px; }
+.video-filmstrip::-webkit-scrollbar-thumb { background: var(--fuchsia); border-radius: 10px; }
+
+.video-box {
+    width: 100%;
+    aspect-ratio: 9 / 16; 
+    background: #000;
+    border-radius: 12px;
+    border: 4px solid white;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+}
+
+.video-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.film-video-box {
+    min-width: 350px;
+    height: 280px; 
+    border-radius: 12px;
+    border: 6px solid white; 
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    background: #000; 
+}
+
+.film-video-box:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-timbul);
+}
+
+.film-video-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.film-video-box:hover .film-caption { transform: translateY(0); }
+
+.jump-nav-wrapper {
+    background-color: transparent;
+    width: 100%;
+    padding: 0 10%;
+    margin: 20px 0 40px; 
+    display: flex;
+    justify-content: flex-start; 
+    z-index: 10;
+}
+
+.jump-nav-content {
+    display: flex;
+    gap: 40px;
+    padding: 15px 0; 
+    border-top: 1px solid #eecad5;
+    border-bottom: 1px solid #eecad5;
+    flex-wrap: wrap;
+}
+
+.jump-nav-content a, 
+.jump-nav-content a:visited,
+.jump-nav-content a:active {
+    text-decoration: none;
+    color: var(--text) !important;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: lowercase;
+    transition: 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.jump-nav-content a:hover {
+    color: var(--fuchsia) !important;
+    transform: translateX(5px);
+}
+
+#family, #friends, #classmates {
+    scroll-margin-top: 100px !important; 
+}
+
+
+
+  </style>
+</head>
+<body class="bg-umum">
+    
+      <iframe src="header.html" width="100%" height="55px" frameborder="0" scrolling="no" style="position:fixed; top:0; left:0; z-index:9999; border:none;"></iframe>
+
+<section class="intro-section">
+<div class="intro-text-box">
+  <h1>To my Loved Ones</h1>
+  <p class="hero-subtext">
+    "i used to think i bloomed all by myself, reaching for a sun i couldn't quite see. 
+    but looking back, i see the hands that held the watering can and the souls that became my soil. 
+    these are my sunlight, my rain, and my roots—the humans who loved me until i finally learned how to flower."
+  </p>
+</div>  
+  <div class="intro-png-container">
+    <img src="images/pfp.jpg" class="intro-png pfp-img">
+    <img src="images/ribbon.png" class="intro-png ribbon-img">
+  </div>
+</section>
+
+
+<div class="jump-nav-wrapper">
+    <div class="jump-nav-content">
+        <a href="#family">family</a>
+        <a href="#friends">friends</a>
+        <a href="#classmates">classmates</a>
+    </div>
+</div>
+
+<div class="music-container">
+    <p style="font-size: 14px; margin-bottom: 12px; font-style: italic; color: #888;">press play for the background of our story</p>
+    <audio controls><source src="audio/love.mp4" type="audio/mpeg"></audio>
+</div>
+
+
+
+<div class="section-header-card" id="family"><h2>Family</h2></div>
+<div class="filmstrip-container">
+    <div class="filmstrip">
+        <div class="film-box" style="background-image: url('images/fam14.jpeg');"><div class="film-caption">The Shaminz Family</div></div>
+        <div class="film-box" style="background-image: url('images/fam11.jpeg');"><div class="film-caption">Raya 2025</div></div>
+        <div class="film-box" style="background-image: url('images/fam4.jpeg');"><div class="film-caption">isya, isyi, ashin</div></div>
+        <div class="film-box" style="background-image: url('images/fam3.jpeg');"><div class="film-caption">Alisya and Rashin</div></div>
+        
+        <div class="film-box" style="background-image: url('images/fam2.jpeg');"><div class="film-caption">Adena's 20th Birthday</div></div>
+        
+        <div class="film-box" style="background-image: url('images/fam8.jpeg');"><div class="film-caption">Adena's love for Upin Ipin</div></div>
+        <div class="film-box" style="background-image: url('images/fam1.jpeg');"><div class="film-caption">Alisya's Convocation</div></div>
+        <div class="film-box" style="background-image: url('images/fam5.jpeg');"><div class="film-caption">Adena and Alisya</div></div>
+        <div class="film-box" style="background-image: url('images/fam12.jpeg');"><div class="film-caption">Our family trip to Cameron Highland</div></div>
+        <div class="film-box" style="background-image: url('images/rashin.jpeg');"><div class="film-caption">Rashin</div></div>
+        <div class="film-box" style="background-image: url('images/fam15.jpeg');"><div class="film-caption">Alisya and Adena</div></div>
+        <div class="film-box" style="background-image: url('images/fam6.jpeg');"><div class="film-caption">Amin's Girls !</div></div>
+        <div class="film-box" style="background-image: url('images/fam7.jpeg');"><div class="film-caption">Alisya and Adena just got back from Tadika Pasti</div></div>
+        <div class="film-box" style="background-image: url('images/noncha.jpg');"><div class="film-caption">Nonchalant Rashin</div></div>
+        <div class="film-box" style="background-image: url('images/fam9.jpeg');"><div class="film-caption">Raya at Kampung</div></div>
+    </div>
+    <span style="font-size: 11px; color: var(--fuchsia); font-style: italic;">scroll to see more memories...</span>
+</div>
+
+<section class="grid-container">
+  <div class="content-card">
+    <img src="images/papa1.jpeg" class="content-img">
+    <h3>Father | Papa | Mohd Amin</h3>
+    <span class="birthday">30 September 1977</span>
+    <p>📍 From Banting <br>
+      My father works at Majlis Bandaraya Shah Alam (MBSA). He married my mother in 2003 and has always been the backbone of our family. Although he did not have the opportunity to further his studies, he worked tirelessly to fulfill all his children’s needs and gave us the best life he could provide. <br><br>
+      He is truly the best father in the world. Also, he is very tall, and unfortunately, I inherited his height as well. Being tall is sometimes considered a disadvantage for a girl, especially when I end up being taller than many other people around me. Because of this, people often say that I look very much like my father, making our resemblance quite obvious. My father never neglected his children and always gives us his full attention. I can ask him about anything, even random things, and he will always listen and respond patiently. He is very skilled and can do almost anything, but his favorite hobby is fishing, which he really loves.
+    </p>
+  </div>
+
+  <div class="content-card">
+    <img src="images/mama.jpeg" class="content-img">
+    <h3>Mother | Mama | Aziah</h3>
+    <span class="birthday">31 October 1979</span>
+    <p>📍 From Batu Pahat, Johor<br>
+My mother is a highly dedicated and inspiring woman. She is currently the Head of Clinical Operations and Patient Experience at WQ Park Health & Rehabilitation Centre, operating in Kelana Jaya and Sentul, Kuala Lumpur.
+
+She holds a Diploma in Occupational Therapy from Universiti Teknologi MARA (UiTM), a Bachelor’s Degree in Applied Rehabilitation (Occupational Therapy) from Teesside University, and professional certifications including Sensory Integration Certification and Train the Trainer Certificate (2025). She is also a Certified Sensory Integration Therapist.
+<br>
+<br>
+My mother always wants her children to succeed in life. She constantly advises me to study hard, complete my diploma on time, and continue my education to a higher level if I have the opportunity and financial support. Her encouragement and guidance motivate me every day.
+</p>
+  </div>
+
+      <div class="content-card">
+    <img src="images/alisya2.jpeg" class="content-img">
+    <h3>Sister | Nur Alisya Haziqah</h3>
+    <span class="birthday">31 January 2004</span>
+    <p>📍Born at UMMC, Kuala Lumpur <br>
+My sister is a Diploma graduate in Hotel Management from UiTM Dungun, Terengganu. She is currently working at Hatten Hotel, Melaka as a Front Office Associate, and she is waiting for her degree enrollment.
+<br> <br>
+She is friendly, talkative, and extroverted — a “big mouth” in the most fun and lovable way. When we were younger, people often thought we were twins because we looked so similar, though that changed as I grew taller than her. Her outgoing personality makes it easy to get along with her, and she always brings positive energy wherever she goes.
+    </p>
+  </div>
+
+
+
+    <div class="content-card">
+    <img src="images/fam10.jpeg" class="content-img">
+    <h3>Little Brother | Mohd Rashin El Arish</h3>
+    <span class="birthday">21 August 2012</span>
+    <p>📍Born at Hospital UMRA, Shah Alam <br>
+My brother is the youngest in the family and definitely the most spoiled one. He is currently studying at SMK TTDI. He loves playing games, football, and spending time outdoors, often ending up with the usual little scrapes and bruises — typical of an energetic boy. Despite being adventurous, he is very sensitive and cries easily, and he loves to pau ice cream from his sisters whenever he can.
+<br> <br>
+Even though he is still young (and very “bocil banget”), he is well-trained by his two “garang” sisters. He brings joy, laughter, and lively energy into our home every day.
+
+    </p>
+  </div>
+
+</section>
+
+<div class="section-header-card" id="friends"><h2>Friends</h2></div>
+<div class="filmstrip-container">
+    <div class="filmstrip">
+        <div class="film-box" style="background-image: url('images/3b1.jpeg');"><div class="film-caption">us.</div></div>
+        <div class="film-box" style="background-image: url('images/3b2.jpeg');"><div class="film-caption">Our First Raya Photoshoot</div></div>
+        <div class="film-box" style="background-image: url('images/3b3.jpeg');"><div class="film-caption">Raya at My House</div></div>
+        <div class="film-box" style="background-image: url('images/3b4.jpeg');"><div class="film-caption"> Attended a Wedding</div></div>
+        <div class="film-box" style="background-image: url('images/3b5.jpeg');"><div class="film-caption">"Kena aircond sikit, TIDUR"</div></div>
+        <div class="film-box" style="background-image: url('images/3b6.jpeg');"><div class="film-caption">Nerd Wannabe</div></div>
+        <div class="film-box" style="background-image: url('images/3b7.jpeg');"><div class="film-caption">Us during MDS</div></div>
+        <div class="film-box" style="background-image: url('images/3b8.jpeg');"><div class="film-caption">Karaoke Crashout</div></div>
+        <div class="film-box" style="background-image: url('images/3b9.jpeg');"><div class="film-caption">More photobooth</div></div>
+        <div class="film-box" style="background-image: url('images/3b10.jpeg');"><div class="film-caption">Beach Night</div></div>
+        <div class="film-box" style="background-image: url('images/3b11.jpeg');"><div class="film-caption">Nature Lover</div></div>
+        <div class="film-box" style="background-image: url('images/3b12.jpeg');"><div class="film-caption">till we meet again.</div></div>
+      </div>
+    <span style="font-size: 11px; color: var(--fuchsia); font-style: italic;">scroll to see more memories...</span>
+</div>
+
+
+<section class="friends-layout">
+    <div class="content-card">
+        <h3>My University Sisters : Adriana, Sofea, Ika, Atikah, and Linda.</h3>
+        <p>
+I am grateful to have formed meaningful friendships with students from various academic fields such as Banking, Mass Communication, and Business. Despite our different backgrounds, our shared university experiences brought us together and created a strong bond. Before entering university, I never truly understood what real friendship felt like. In secondary school, I was more reserved, and most of my relationships were limited to classmates, which rarely lasted beyond those years.
+<br><br>
+University changed everything for me. I became close to my housemates as we started our journey together from zero. We faced assignments, financial struggles, mental stress, sleepless nights, and homesickness side by side. From learning how to cook and manage ourselves to supporting one another through laughter and tears, our friendship gradually grew into a sisterhood that has lasted from my first semester until now.
+<br><br>
+Even simple moments became meaningful when spent together — studying at PTAR, eating around Rembau, late-night conversations, and watching movies. They are not just my friends, but my safe place, my support system, and the people who made my university life meaningful and complete.   
+            <br><br>
+            <strong>They are not just my friends, but my safe place, my support system, and the people who made my university life meaningful and complete.</strong>
+        </p>
+    </div>
+
+<div class="video-filmstrip-container">
+    <div class="video-filmstrip">
+        <div class="video-box">
+            <video controls loop muted><source src="video/tiktok1.mp4" type="video/mp4"></video>
+        </div>
+        <div class="video-box">
+            <video controls loop muted><source src="video/tiktok2.mp4" type="video/mp4"></video>
+        </div>
+        <div class="video-box">
+            <video controls loop muted><source src="video/tiktok3.mp4" type="video/mp4"></video>
+        </div>
+        <div class="video-box">
+            <video controls loop muted><source src="video/tiktok4.mp4" type="video/mp4"></video>
+        </div>
+        <div class="video-box">
+            <video controls loop muted><source src="video/tiktok5.mp4" type="video/mp4"></video>
+        </div>
+        <div class="video-box">
+            <video controls loop muted><source src="video/tiktok6.mp4" type="video/mp4"></video>
+        </div>
+        <div class="video-box">
+            <video controls loop muted><source src="video/tiktok7.mp4" type="video/mp4"></video>
+        </div>
+        <div class="video-box">
+            <video controls loop muted><source src="video/tiktok8.mp4" type="video/mp4"></video>
+        </div>
+        <div class="video-box">
+            <video controls loop muted><source src="video/tiktok9.mp4" type="video/mp4"></video>
+        </div>
+        <div class="video-box">
+            <video controls loop muted><source src="video/tiktok10.mp4" type="video/mp4"></video>
+        </div>
+        <div class="video-box">
+            <video controls loop muted><source src="video/tiktok12.mp4" type="video/mp4"></video>
+        </div>
+        <div class="video-box">
+            <video controls loop muted><source src="video/tiktok13.mp4" type="video/mp4"></video>
+        </div>
+    
+    </div>
+    <span style="font-size: 10px; color: var(--fuchsia); font-style: italic; display: block; margin-top: 10px;">
+        scroll for more of our tiktok diaries...
+    </span>
+</div>
+
+  </section>
+
+
+<div class="section-header-card" id="classmates"><h2>Classmates</h2></div>
+<div class="filmstrip-container">
+    <div class="filmstrip">
+        <div class="film-video-box">
+            <video controls loop muted><source src="video/vcm1.mp4" type="video/mp4"></video>
+        </div>
+
+        <div class="film-box" style="background-image: url('images/cm1.jpeg');"></div>
+
+        <div class="film-box" style="background-image: url('images/cm2.jpeg');"></div>
+
+        <div class="film-video-box">
+            <video controls loop muted><source src="video/vcm2.mp4" type="video/mp4"></video>
+        </div>
+
+        <div class="film-box" style="background-image: url('images/cm3.jpeg');"></div>
+
+        <div class="film-box" style="background-image: url('images/cm4.jpeg');"></div>
+
+        <div class="film-box" style="background-image: url('images/cm5.jpeg');"></div>
+
+        <div class="film-video-box">
+            <video controls loop muted><source src="video/vcm4.mp4" type="video/mp4"></video>
+        </div>
+
+        <div class="film-box" style="background-image: url('images/cm6.jpeg');"></div>
+
+        <div class="film-box" style="background-image: url('images/cm7.jpeg');"></div>
+
+        <div class="film-box" style="background-image: url('images/cm8.jpeg');"></div>
+
+        <div class="film-video-box">
+            <video controls loop muted><source src="video/vcm3.mp4" type="video/mp4"></video>
+        </div>
+    </div>
+    <span style="font-size: 11px; color: var(--fuchsia); font-style: italic; display: block; margin-top: 10px;">scroll to see more memories...</span>
+</div>
+
+<section class="grid-container" style="grid-template-columns: 1fr;">
+    <div class="content-card">
+        <p>To my classmates at UiTM Rembau, thank you for making the academic journey feel like a collective adventure. Even though I may not be very close to everyone, from Semester 1 until Semester 5, they slowly became familiar and comforting faces in my university life. They are the people I see in class, work with during assignments, and share everyday academic moments with, and that alone means a lot to me.
+<br><br>
+I am not a very talkative person, but being in that environment made me feel comfortable in my own quiet way. I appreciated the small moments of laughter, casual conversations, and the simple feeling of belonging — even without saying much. Along the way, there were certain moments that made my heart feel a little lighter, moments that quietly stayed longer in my thoughts and became part of my memories.
+<br><br>
+To my groupmates who always invited me to go out together — whether to eat, work on assignments, or even travel to Arkib Melaka — I truly appreciate those gestures. Those moments made me feel included and reminded me that friendship does not always have to be loud to be real.
+<br><br>
+I genuinely feel happy being friends with everyone. Thank you for making my university journey warmer, more memorable, and filled with shared experiences. May we all find the success we are blooming for. 🤍</p>
+    </div>
+</section>
+
+
+<a href="#top" class="top-btn">↑</a>
+<iframe src="footer.html" width="100%" height="120px" frameborder="0" scrolling="no" style="border:none; margin-top:50px;"></iframe>
+
+</body>
+</html>
