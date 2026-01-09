@@ -6,148 +6,153 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-    <style>
-        :root {
-            --fuchsia: #d45a8d;
-            --soft-pink: #fdf2f5;
-            --text: #5a4a4a;
-            --shadow-flat: 0 5px 15px rgba(0,0,0,0.08);
-            --shadow-timbul: 0 15px 30px rgba(212, 90, 141, 0.25);
-        }
 
-        * { box-sizing: border-box; }
 
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            overflow: hidden; 
-            color: var(--text);
-            display: flex;
-            flex-direction: column;
-        }
 
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255, 250, 251, 0.6);
-            z-index: -1;
-        }
+<style>
+    :root {
+        --fuchsia: #d45a8d;
+        --soft-pink: #fdf2f5;
+        --text: #5a4a4a;
+        --shadow-flat: 0 5px 15px rgba(0,0,0,0.08);
+        --shadow-timbul: 0 15px 30px rgba(212, 90, 141, 0.25);
+    }
 
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center; 
-            align-items: center;    
-            text-align: center;
-            z-index: 10;
-            padding: 20px;
-            margin-top: 55px; 
-        }
+    * { box-sizing: border-box; }
 
-        .top-right-container {
-            position: absolute;
-            top: 75px; 
-            right: 25px;
-            text-align: right;
-            font-size: 13px;
-            color: var(--fuchsia);
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(5px);
-            padding: 8px 15px;
-            border-radius: 12px;
-            box-shadow: var(--shadow-flat);
-            z-index: 100;
-            min-width: 120px;
-        }
+    /* Penting: Pastikan HTML dan Body benarkan skrol */
+    html, body {
+        height: auto; 
+        overflow-y: visible !important; 
+        overflow-x: hidden;
+    }
 
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 45px;
-            font-style: italic;
-            margin: 0;
-            color: var(--text);
-            line-height: 1.2;
-        }
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        min-height: 100vh;
+        color: var(--text);
+        /* Kita buang display: flex supaya layout jadi normal semula */
+    }
 
-        .main-paragraph { font-size: 13px; margin: 5px 0 15px; font-weight: 300; opacity: 0.8; }
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(255, 250, 251, 0.6);
+        z-index: -1;
+    }
 
-        .image-center-wrapper {
-            margin: 10px auto;
-            cursor: pointer;
-            position: relative;
-        }
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;    
+        text-align: center;
+        z-index: 10;
+        padding: 40px 20px 0px;
+        margin-top: 70px; /* Jarak dari header */
+    }
 
-        .layered-container {
-            position: relative;
-            width: 260px;
-            height: 230px;
-        }
+    /* Kod bawah ini kekalkan seperti asal Adena */
+    .top-right-container {
+        position: absolute;
+        top: 75px; 
+        right: 25px;
+        text-align: right;
+        font-size: 13px;
+        color: var(--fuchsia);
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(5px);
+        padding: 8px 15px;
+        border-radius: 12px;
+        box-shadow: var(--shadow-flat);
+        z-index: 100;
+        min-width: 120px;
+    }
 
-        .layer-img {
-            position: absolute;
-            width: 170px;
-            border: 6px solid white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            transition: 0.5s ease-in-out;
-            left: 50%; top: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-        }
+    h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 45px;
+        font-style: italic;
+        margin: 0;
+        color: var(--text);
+        line-height: 1.2;
+    }
 
-        .ribbon-main {
-            position: absolute;
-            width: 120px;
-            z-index: 100;
-            left: 50%; top: -15px;
-            transform: translateX(-50%);
-            pointer-events: none;
-            transition: 0.3s;
-        }
+    .main-paragraph { font-size: 13px; margin: 5px 0 15px; font-weight: 300; opacity: 0.8; }
 
-        .click-hint {
-            font-size: 11px;
-            color: var(--fuchsia);
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            opacity: 0.7;
-            text-transform: lowercase;
-            font-style: italic;
-        }
+    .image-center-wrapper {
+        margin: 10px auto;
+        cursor: pointer;
+        position: relative;
+    }
 
-        /* === INFO BOX === */
-        .profile-info-card {
-            max-width: 550px;
-            padding: 15px 25px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 18px;
-            box-shadow: var(--shadow-flat);
-            margin-bottom: 15px;
-        }
-        .pink-text { color: var(--fuchsia); font-weight: 500; font-size: 13.5px; line-height: 1.6; margin: 0; }
+    .layered-container {
+        position: relative;
+        width: 260px;
+        height: 230px;
+    }
 
-        /* === AUDIO === */
-        audio { height: 28px; width: 280px; opacity: 0.7; }
+    .layer-img {
+        position: absolute;
+        width: 170px;
+        border: 6px solid white;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        transition: 0.5s ease-in-out;
+        left: 50%; top: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+    }
 
-        /* === SOCIALS === */
-        .main-socials { display: flex; gap: 15px; justify-content: center; margin-top: 15px; }
-        .main-socials img { width: 32px; height: 32px; transition: 0.3s; }
-        .main-socials img:hover { transform: translateY(-5px); }
+    .ribbon-main {
+        position: absolute;
+        width: 120px;
+        z-index: 100;
+        left: 50%; top: -15px;
+        transform: translateX(-50%);
+        pointer-events: none;
+        transition: 0.3s;
+    }
 
-        /* === BUTTERFLY === */
-        .butterfly-container { position: fixed; z-index: 9999; pointer-events: none; width: 45px; animation: flyAcross 25s linear infinite; }
-        .butterfly-image { width: 100%; animation: wingFlap 0.3s ease-in-out infinite alternate; }
-        @keyframes wingFlap { from { transform: rotateY(0deg); } to { transform: rotateY(70deg); } }
-        @keyframes flyAcross {
-            0% { top: 30%; left: -10%; transform: rotate(20deg); }
-            50% { top: 15%; left: 85%; transform: rotate(-10deg); }
-            100% { top: 30%; left: -10%; transform: rotate(20deg); }
-        }
-    </style>
+    .click-hint {
+        font-size: 11px;
+        color: var(--fuchsia);
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+        opacity: 0.7;
+        text-transform: lowercase;
+        font-style: italic;
+    }
+
+    .profile-info-card {
+        max-width: 550px;
+        padding: 15px 25px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 18px;
+        box-shadow: var(--shadow-flat);
+        margin-bottom: 15px;
+    }
+    .pink-text { color: var(--fuchsia); font-weight: 500; font-size: 13.5px; line-height: 1.6; margin: 0; }
+
+    audio { height: 28px; width: 280px; opacity: 0.7; }
+
+    .main-socials { display: flex; gap: 15px; justify-content: center; margin-top: 15px; }
+    .main-socials img { width: 32px; height: 32px; transition: 0.3s; }
+    .main-socials img:hover { transform: translateY(-5px); }
+
+    .butterfly-container { position: fixed; z-index: 9999; pointer-events: none; width: 45px; animation: flyAcross 25s linear infinite; }
+    .butterfly-image { width: 100%; animation: wingFlap 0.3s ease-in-out infinite alternate; }
+    @keyframes wingFlap { from { transform: rotateY(0deg); } to { transform: rotateY(70deg); } }
+    @keyframes flyAcross {
+        0% { top: 30%; left: -10%; transform: rotate(20deg); }
+        50% { top: 15%; left: 85%; transform: rotate(-10deg); }
+        100% { top: 30%; left: -10%; transform: rotate(20deg); }
+    }
+</style>
+
 </head>
 
 
@@ -201,7 +206,7 @@
     </div>
 </main>
 
-<iframe src="footer.html" width="100%" height="80px" frameborder="0" scrolling="no" style="border:none; margin-top:20px;"></iframe>
+<iframe src="footer.html" width="100%" height="120px" frameborder="0" scrolling="no" style="border:none; margin-top:20px;"></iframe>
 
 <script>
     function updateTime() {

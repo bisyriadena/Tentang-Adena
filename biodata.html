@@ -59,7 +59,22 @@
     th { color: var(--fuchsia); font-size: 20px; }
 
     .socials { display: flex; gap: 20px; margin-top: 20px; }
-    .socials img { width: 40px; transition: 0.3s; }
+
+.socials a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.socials img { 
+    width: 40px; 
+    transition: all 0.3s ease-in-out; 
+}
+
+.socials a:hover img { 
+    transform: translateY(-5px) scale(1.08); 
+    filter: drop-shadow(0 6px 8px rgba(212, 90, 141, 0.2)); 
+}
+
     .resume-btn { display: inline-block; padding: 15px 35px; background: var(--fuchsia); color: white; text-decoration: none; border-radius: 50px; font-weight: 500; box-shadow: 0 10px 20px rgba(212, 90, 141, 0.3); transition: 0.3s; }
 
     .testimonial-container { display: grid; grid-template-columns: 280px 1fr; gap: 40px; }
