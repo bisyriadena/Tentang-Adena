@@ -372,7 +372,74 @@
 #family, #friends, #classmates {
     scroll-margin-top: 100px !important; 
 }
+/* === MOBILE RESPONSIVE  === */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 40px; 
+        text-align: center;
+    }
 
+    .intro-section {
+        flex-direction: column;
+        padding: 100px 5% 40px;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-subtext {
+        font-size: 16px;
+        margin: 15px auto;
+    }
+
+    .intro-png-container {
+        width: 100%;
+        max-width: 300px;
+        height: 280px;
+        margin: 0 auto;
+    }
+
+    .pfp-img {
+        width: 200px;
+        left: 50px;
+    }
+
+    .ribbon-img {
+        width: 200px;
+    }
+
+    .grid-container, 
+    .friends-layout {
+        grid-template-columns: 1fr !important;
+        padding: 0 5% 40px;
+    }
+
+    .content-card {
+        padding: 20px;
+    }
+
+    .section-header-card {
+        margin: 40px 5% 20px;
+        padding: 15px 25px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    .video-filmstrip {
+        height: 500px;
+    }
+
+    .film-box, .film-video-box {
+        min-width: 280px;
+        height: 220px;
+    }
+
+    .jump-nav-content {
+        gap: 20px;
+        justify-content: center;
+    }
+}
 
 
   </style>
