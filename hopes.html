@@ -231,7 +231,68 @@
         font-size: 45px; 
     }
 }
-  </style>
+
+
+
+.footer-navigation {
+    text-align: center;
+    margin-top: 80px;
+    padding: 40px 0;
+    border-top: 1px solid rgba(212, 90, 141, 0.1);
+    font-family: 'Poppins', sans-serif;
+}
+
+.mail-box p {
+    font-size: 14px;
+    color: #8a7373;
+    margin-bottom: 25px;
+}
+
+.mail-link {
+    color: var(--fuchsia);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid var(--fuchsia);
+}
+
+.alt-nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.alt-nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 500;
+    transition: 0.3s;
+    opacity: 0.8;
+}
+
+.alt-nav a:hover {
+    color: var(--fuchsia);
+    opacity: 1;
+}
+
+.alt-label {
+    font-size: 11px;
+    opacity: 0.5;
+    margin-left: 3px;
+    font-weight: 400;
+}
+
+@media (max-width: 600px) {
+    .alt-nav {
+        gap: 10px;
+    }
+    .alt-nav a {
+        font-size: 11px;
+    }
+}
+
+</style>
 </head>
 
 <body class="bg-umum">
@@ -323,6 +384,18 @@
             <img src="images/REMOVED.png" class="single-paper-pic">
         </div>
     </div>
+</div>
+
+<div class="footer-navigation">
+
+    <nav class="alt-nav">
+        <a href="index.html" accesskey="0">Back Home <span class="alt-label">(ALT0)</span></a>
+        <a href="biodata.html" accesskey="1">Biodata <span class="alt-label">(ALT1)</span></a>
+        <a href="experiences.html" accesskey="2">Experiences <span class="alt-label">(ALT2)</span></a>
+        <a href="lovedones.html" accesskey="3">Loved Ones <span class="alt-label">(ALT3)</span></a>
+        <a href="dearest.html" accesskey="4">Dearest <span class="alt-label">(ALT4)</span></a>
+        <a href="hopes.html" accesskey="6"> Hopes <span class="alt-label">(ALT5)</span></a>
+    </nav>
 </div>
 
 
