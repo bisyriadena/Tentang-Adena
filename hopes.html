@@ -199,6 +199,38 @@
       .filmstrip-container { width: 100%; }
       .row-top, .row-middle, .row-bottom { grid-template-columns: 1fr; }
     }
+    @media (max-width: 1100px) {
+    .header-section { 
+        flex-direction: column; 
+        text-align: center; 
+        padding-top: 100px; 
+    }
+    
+    .filmstrip-wrapper { 
+        align-items: center; 
+        width: 100%;
+    }
+
+    .filmstrip-container { 
+        width: 90vw; 
+        max-width: 480px; 
+        padding: 15px;
+        margin: 0 auto;
+    }
+
+    .film-box {
+        min-width: 130px; 
+        height: 180px; 
+    }
+
+    .row-top, .row-middle, .row-bottom { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .intro-left h1 {
+        font-size: 45px; 
+    }
+}
   </style>
 </head>
 
